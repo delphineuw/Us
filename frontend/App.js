@@ -1,10 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+// Local imports
+import Example from './app/components/Example/index';
+
 const App = () => {
   return (
-    <View>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ flex: 1 }}>
+      <Example />
     </View>
   );
 };
