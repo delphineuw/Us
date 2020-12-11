@@ -1,117 +1,37 @@
-// Import Sequelize
-const { Sequelize, DataTypes } = require('sequelize');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
-// Database Config
-const dbConfig = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  insecureAuth: true
-};
+// Local imports
+const sequelize = require('./utils/config');
+const usersRoute = require('./routes/users-route');
+const eventsRoute = require('./routes/events-route');
+const activitiesRoute = require('./routes/activities-route');
 
-// Sequelize Config
-const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, {
-  host: dbConfig.host,
-  dialect: 'mysql'
+// Express Config
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+
+// Registered Routes
+/*
+app.use('/api/users', usersRoute);
+app.use('/api/events', eventsRoute);
+app.use('/api/activities', activitiesRoute);
+*/
+
+// Error Handling Middleware
+app.use((error, req, res, next) => {
+  console.log(error);
+  res.json({ message: error.message || 'An unknown error occured.' });
 });
 
-// Test Connect to Database
-const tryConnect = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-};
-
-tryConnect();
-
-// Sequelize Model
-const User = sequelize.define(
-  'User',
-  {
-    // Model attributes are defined here
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  },
-  {
-    // Other model options go here
-  }
-);
-
-// Test Sync Model
-const trySync = async () => {
-  try {
-    // await sequelize.sync({ force: true }); ==> Sync all models
-    await User.sync();
-    console.log('The table for the User model was just (re)created!');
-  } catch (error) {
-    console.error('Unable to connect to sync:', error);
-  }
-};
-
-trySync();
-
-// Create User
-const will = User.build({ firstName: 'Will', lastName: 'Smith' });
-
-// Save User to Database
-const saveUser = async () => {
-  try {
-    // const will = await User.create({ firstName: 'Will', lastName: 'Smith' });
-    await will.save();
-    console.log('Jane was saved to the database!');
-  } catch (error) {
-    console.error('Unable to save User:', error);
-  }
-};
-
-saveUser();
-
-// Delete User from Database
-const deleteUser = async () => {
-  try {
-    await will.destroy();
-    console.log('Jane was removed from the database!');
-  } catch (error) {
-    console.error('Unable to delete User:', error);
-  }
-};
-
-// deleteUser();
-
-// Get Users from Database
-const selectAll = async () => {
-  try {
-    const users = await User.findAll();
-    console.log('All users:', JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Unable to fetch:', error);
-  }
-};
-
-selectAll();
-
-// Get Users from Database
-const selectOne = async () => {
-  try {
-    const users = await User.findAll({
-      where: {
-        id: 2
-      }
-    });
-    console.log('One users:', JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Unable to fetch:', error);
-  }
-};
-
-selectOne();
+// Server Start & Database connection
+sequelize
+  .authenticate()
+  .then(() =>
+    app.listen(process.env.PORT || 5000, () =>
+      console.log(`Server up and running on port: ${process.env.PORT || 5000}!`)
+    )
+  )
+  .catch(error => console.log('Cannot reach database: ', error));
