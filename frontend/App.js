@@ -2,12 +2,12 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 // Local imports
-import Example from './app/components/Example/index';
+import Hobbies from './app/components/Hobbies/index';
 
 const App = () => {
   return (
     <View style={{ flex: 1 }}>
-      <Example />
+      <Hobbies />
     </View>
   );
 };
