@@ -18,13 +18,15 @@ const styles = StyleSheet.create({
         borderRadius: 100/2,
         margin: 10,
         backgroundColor: 'lightgrey'
-        // borderWidth: 4,
-        // borderColor: 'lightgreen',
     },
-    // pickekHobbies: {
-    //     borderWidth: 4,
-    //     borderColor: 'limegreen',
-    // }
+    pickedHobbies: {
+        height: 100,
+        width: 100,
+        borderRadius: 100/2,
+        margin: 10,
+        borderWidth: 4,
+        borderColor: 'limegreen',
+    }
     });
 
 export default styles;

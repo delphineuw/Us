@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 // Local imports
-import HobbiesScreen from './app/components/HobbiesScreen/index';
+import HobbiesScreen from './app/screens/HobbiesScreen/index';
 
 const App = () => {
   return (
