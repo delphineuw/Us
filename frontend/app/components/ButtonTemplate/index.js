@@ -2,16 +2,25 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 // Local imports
-import styles from './stylesRed';
-// import styles from './stylesGreen';
+import styles from './styles';
 
 const ButtonTemplate = ({ text, handlePress }) => {
   
   return (
     <View style={styles.container}> 
         <TouchableOpacity style={styles.containingViewOfButton} onPress={handlePress}>
-            <View style={styles.buttonSave}>
-                <Text style={styles.textSave}>
+            <View 
+              style={styles.buttonFullRed}
+              // style={styles.buttonEmptyRed}
+              // style={styles.buttonEmptyBlack}
+              // style={styles.buttonFullGreen}
+              >
+
+                <Text 
+                  style={styles.textWhite}
+                  // style={styles.textRed}
+                  // style={styles.textBlack}
+                  >
                     {text}
                 </Text> 
             </View>
