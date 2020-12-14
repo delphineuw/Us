@@ -4,6 +4,7 @@ import { View, Text, ScrollView, Button } from 'react-native';
 // Local imports
 import InputTemplate from '../InputTemplate/index';
 import RadioTemplate from '../RadioTemplate/index';
+import DatePickerTemplate from '../DatePickerTemplate/index';
 import styles from './styles';
 
 const FormTemplate = props => {
@@ -36,7 +37,7 @@ const FormTemplate = props => {
         );
 
       case 'date':
-        return null;
+        return <DatePickerTemplate key={input.id} label={input.label} />;
 
       default:
         break;
