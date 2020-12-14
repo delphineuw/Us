@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TextInput, Text } from 'react-native';
 
+// Local Imports
 import styles from './styles';
 
 const InputTemplate = props => {
