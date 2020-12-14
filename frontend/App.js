@@ -6,14 +6,8 @@ import FormTemplate from './app/components/FormTemplate';
 
 const exampleForm = [
   {
-    placeholder: 'Write here...',
-    label: 'Name',
-    multiline: false,
-    type: 'name',
-    security: false,
-    autoCapitalize: 'sentences'
-  },
-  {
+    id: 2,
+    render: 'text',
     placeholder: 'Write here...',
     label: 'Email',
     multiline: false,
@@ -22,12 +16,25 @@ const exampleForm = [
     autoCapitalize: 'none'
   },
   {
+    id: 3,
+    render: 'text',
     placeholder: 'Write here...',
     label: 'Password',
     multiline: false,
     type: 'password',
     security: true,
     autoCapitalize: 'none'
+  },
+  {
+    id: 4,
+    render: 'radio',
+    label: 'Gender',
+    options: ['Male', 'Female', 'Other']
+  },
+  {
+    id: 5,
+    render: 'date',
+    label: 'Date of birth'
   }
 ];
 
