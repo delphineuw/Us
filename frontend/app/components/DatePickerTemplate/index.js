@@ -6,13 +6,13 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from './styles';
 
 const DatePickerTemplate = props => {
-  const [date, setDate] = useState(new Date(1598051730000));
   const [show, setShow] = useState(false);
 
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
+    const today = new Date();
+    const currentDate = selectedDate || today;
     setShow(Platform.OS === 'ios');
-    setDate(currentDate);
+    props.onChange(currentDate);
   };
 
   return (
@@ -21,7 +21,7 @@ const DatePickerTemplate = props => {
       {show ? (
         <DateTimePicker
           testID="dateTimePicker"
-          value={date}
+          value={props.value}
           mode="date"
           is24Hour={true}
           display="default"
