@@ -6,6 +6,22 @@
 
 `npm install`
 
+*You have to set environnement variables* in the "backend" directory as follows:
+
+```javascript
+// nodemon.json
+
+{
+  "env": {
+    "PORT": 4000,
+    "DB_HOST": <localhost?>,
+    "DB_USER": "root",
+    "DB_PASSWORD": <password?>,
+    "DB_NAME": "us"
+  }
+}
+```
+
 Work in progress 🔨
 
 # Components Doc 📝
