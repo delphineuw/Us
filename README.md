@@ -131,6 +131,16 @@ Work in progress 🔨
 
 **v2**
 
+```javascript
+<RadioTemplate
+       label={input.label}
+       key={input.id}
+       options={input.options}
+       value={input.value}
+       onChange={option => changeHandler(option, input)}
+       />
+```
+
 ### label
 
 <ul>
@@ -155,6 +165,15 @@ Work in progress 🔨
 ## Inputs Date
 
 **v2**
+
+```javascript
+<DatePickerTemplate
+       key={input.id}
+       label={input.label}
+       value={input.value}
+       onChange={date => changeHandler(date, input)}
+       />
+```
 
 ### label
 
