@@ -1,6 +1,14 @@
 # Us
 
-# Setup 🖥
+<h1>Us</h1>
+
+<h2>Table of Contents</h2>
+
+<ol>
+  <li><a href="#setup">Setup</a></li>
+</ol>  
+
+<h2 id="setup">Setup 🖥</h2>
 
 `cd <directory>`
 
