@@ -58,7 +58,6 @@ Work in progress 🔨
     type={input.type}
     security={input.security}
     autoCapitalize={input.autoCapitalize}
-    key={input.id}
     value={input.value}
     onChange={text => changeHandler(text, input)}
     />
@@ -134,7 +133,6 @@ Work in progress 🔨
 ```javascript
 <RadioTemplate
        label={input.label}
-       key={input.id}
        options={input.options}
        value={input.value}
        onChange={option => changeHandler(option, input)}
@@ -168,7 +166,6 @@ Work in progress 🔨
 
 ```javascript
 <DatePickerTemplate
-       key={input.id}
        label={input.label}
        value={input.value}
        onChange={date => changeHandler(date, input)}
