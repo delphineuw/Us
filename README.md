@@ -4,6 +4,13 @@
 
 <ol>
   <li><a href="#setup">Setup</a></li>
+  <li><a href="#comp">Components</a></li>
+  <ul>
+    <li><a href="form">Form</a></li> 
+    <li><a href="textInp">Text Input</a></li>
+    <li><a href="radioInp">Radio Input</a></li>
+    <li><a href="dateInp">Date Input</a></li>
+  </ul>
 </ol>  
 
 <h2 id="setup">Setup 🖥</h2>
@@ -30,9 +37,9 @@
 
 Work in progress 🔨
 
-# Components Doc 📝
+<h2 id="comp">Components Doc 📝</h2>
 
-## Form
+<h3 id="form">Form</h3>
 
 **v2**
 
@@ -52,7 +59,7 @@ Work in progress 🔨
 <li>Required: True</li>
 </ul>
 
-## Inputs Text
+<h3 id="textInp">Text Input</h3>
 
 **v2**
 
@@ -132,7 +139,7 @@ Work in progress 🔨
 <li>Required: True</li>
 </ul>
 
-## Inputs Radio
+<h3 id="radioInp">Radio Input</h3>
 
 **v2**
 
@@ -166,7 +173,7 @@ Work in progress 🔨
 <li>Required: True</li>
 </ul>
 
-## Inputs Date
+<h3 id="dateInp">Date Input</h3>
 
 **v2**
 
