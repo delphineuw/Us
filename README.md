@@ -6,10 +6,10 @@
   <li><a href="#setup">Setup</a></li>
   <li><a href="#comp">Components</a></li>
   <ul>
-    <li><a href="form">Form</a></li> 
-    <li><a href="textInp">Text Input</a></li>
-    <li><a href="radioInp">Radio Input</a></li>
-    <li><a href="dateInp">Date Input</a></li>
+    <li><a href="#form">Form</a></li> 
+    <li><a href="#textInp">Text Input</a></li>
+    <li><a href="#radioInp">Radio Input</a></li>
+    <li><a href="#dateInp">Date Input</a></li>
   </ul>
 </ol>  
 
