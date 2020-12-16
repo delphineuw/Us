@@ -59,7 +59,7 @@ Work in progress 🔨
 <li>Required: True</li>
 </ul>
 
-<h3 id="textInp">Text Input</h3>
+<h3 id="textInp"><ins>Text Input</ins></h3>
 
 **v2**
 
