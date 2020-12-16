@@ -8,7 +8,7 @@
 
 *You have to set environnement variables* in the "backend" directory as follows:
 
-```javascript
+```json
 // nodemon.json
 
 {
