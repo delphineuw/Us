@@ -15,11 +15,11 @@
 
 <h2 id="setup">Setup 🖥</h2>
 
-```bash git clone```
+```git clone```
 
-```bash cd <directory>```
+```cd <directory>```
 
-```bash npm install```
+```npm install```
 
 *You have to set environnement variables* in the "backend" directory as follows:
 
