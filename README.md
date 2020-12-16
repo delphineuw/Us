@@ -39,7 +39,7 @@ Work in progress 🔨
 
 <h2 id="comp">Components Doc 📝</h2>
 
-<h3 id="form">Form</h3>
+<h3 id="form"><ins>Form</ins></h3>
 
 **v2**
 
@@ -139,7 +139,7 @@ Work in progress 🔨
 <li>Required: True</li>
 </ul>
 
-<h3 id="radioInp">Radio Input</h3>
+<h3 id="radioInp"><ins>Radio Input</ins></h3>
 
 **v2**
 
@@ -173,7 +173,7 @@ Work in progress 🔨
 <li>Required: True</li>
 </ul>
 
-<h3 id="dateInp">Date Input</h3>
+<h3 id="dateInp"><ins>Date Input</ins></h3>
 
 **v2**
 
