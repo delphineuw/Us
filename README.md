@@ -50,7 +50,7 @@ Work in progress 🔨
 
 **v2**
 
-```
+```javascript
 <InputTemplate
     placeholder={input.placeholder}
     label={input.label}
@@ -172,7 +172,7 @@ Work in progress 🔨
 
 ### Example:
 
-```
+```javascript
 const exampleForm = [
   {
     id: 1,
