@@ -6,8 +6,10 @@ import { CheckBox, Right, Text } from 'native-base';
 // Local imports
 import styles from './styles';
 
-const HobbieTemplate = ({firstName, lastName, imageUri}) => {
+const HobbieTemplate = ({firstName, lastName, imageUri, isCreator}) => {
 
+  const [ isPress, setIsPress ] = React.useState(false);
+  
   return (
     <View> 
             <TouchableOpacity style={styles.participant}>
@@ -15,7 +17,16 @@ const HobbieTemplate = ({firstName, lastName, imageUri}) => {
                     <Image style={styles.imageParticipant} source={imageUri}/>
                     <Text style={styles.textParticipant}> {firstName}{' '}{lastName} </Text> 
                     <Right>
-                      <AntDesign name="right" size={30} color="black" />
+                        <View style={styles.iconparticipant}>
+                          {isCreator? <CheckBox 
+                                          style={styles.checkBoxParticipant} 
+                                          onPress={() => setIsPress (prevstate => !prevstate)} 
+                                          checked={isPress ? true : false} 
+                                          color="green"
+                                          /> : null}
+
+                          <AntDesign name="right" size={30} color="black" />
+                        </View>
                     </Right>
                 </View>
             </TouchableOpacity>

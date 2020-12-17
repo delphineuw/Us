@@ -21,11 +21,15 @@ const styles = StyleSheet.create({
     alignParticipant: {
         flexDirection: 'row',
         alignItems:'center',
-        // justifyContent: 'space-between'
     },
-    squareParticipant: {
-    
-
+    iconparticipant: {
+        flexDirection: 'row',
+    },
+    checkBoxParticipant: {
+        marginRight: 40,
+        marginTop: 5,
+        // width: 25,
+        // height: 25,
     },
 });
 

@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
        
         fontSize: 30,
         textAlign: 'center'
+    },
+    note: {
+        textAlign: 'center'
     }
     });
 

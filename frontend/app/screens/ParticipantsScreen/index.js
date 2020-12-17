@@ -9,9 +9,17 @@ import participantsTest from '../../utils/participantsTest.js';
 
 const ParticipantsScreen = props => {
 
+  const isCreator = true;
+
+
   const maping = () => {
     return participantsTest.map((item) => (
-        <ParticipantTemplate key={item.key} imageUri={item.imageUri} firstName={item.firstName} lastName={item.lastName} />
+        <ParticipantTemplate 
+            key={item.key} 
+            imageUri={item.imageUri} 
+            firstName={item.firstName} 
+            lastName={item.lastName} 
+            isCreator={isCreator} />
    ))};
 
   return (
@@ -21,6 +29,10 @@ const ParticipantsScreen = props => {
         <Text style={styles.text}>
             Participants
         </Text>
+        {isCreator ?  <Text style={styles.note} note>
+          Choose who particpate to your event
+        </Text> : <Text></Text>}
+       
       </View>
 
       <ScrollView>
