@@ -1,13 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 // Local imports
-import HobbiesScreen from './app/screens/HobbiesScreen/index';
+import ParticipantsScreen from './app/screens/ParticipantsScreen/index';
+
 
 const App = () => {
   return (
     <View style={{ flex: 1 }}>
-      <HobbiesScreen />
+      <ParticipantsScreen />
     </View>
   );
 };
