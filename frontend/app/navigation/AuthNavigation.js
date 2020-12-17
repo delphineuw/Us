@@ -153,7 +153,7 @@ function EditScreen ({ navigation }) {
 
 const Stack = createStackNavigator();
 
-function AppNavigation() {
+function AuthNavigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -213,4 +213,4 @@ const styles = StyleSheet.create({
 
 
 
-export default AppNavigation;
+export default AuthNavigation;
