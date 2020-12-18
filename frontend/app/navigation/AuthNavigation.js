@@ -49,15 +49,6 @@ const exampleForm = [
 
 const Stack = createStackNavigator();
 
-// function SplashScreen({ navigation }) {
-//      return (
-//        <View style={styles.container}>
-//         <TouchableOpacity onPress={() => navigation.navigate('Welcome')} >
-//             <Image source={splash}  style={{ width:400, height:400, borderRadius: 700, marginTop:150 }} />
-//         </TouchableOpacity>
-//          </View>
-//     );
-//  }
  function WelcomeScreen ({ navigation }) {
      return (
     <View style={styles.container}>
