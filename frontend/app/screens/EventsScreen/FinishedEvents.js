@@ -1,35 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 // Local imports
+import styles from './styles'
+import eventsTest from  '../../utils/eventsTest.js';
+import EventTemplate from '../../components/EventTemplate/Index.js'
 
 
 
-const finisehdEvents = () => {
-  return (
-    <View style={styles.events} >
-        <Text style={styles.text}> Finished Events </Text>
-        <View style={styles.container}>
-        </View>
-    </View>
+const finisehdEvents = props => {
+  const maping = () => {
+      return eventsTest.map((item)=> (
+        <EventTemplate key={item.key} imageUri={item.imageUri} title={item.title} />
+      ))};
+ return (
+   <View  >
+       <Text style={styles.text}> Finished events</Text>
+       <View style={styles.container}>
+             {maping()}
+       </View>
+   </View>
 )}
 
 
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    flexWrap:'wrap',
-    margin: 20,
-  },
-  events: {
-  justifyContent: 'center',
-  backgroundColor: "#047C7C",
-},
-text: {
-  marginTop:80,
-  textAlign:'center',
-  fontSize: 25,
-}
-})
+
 export default finisehdEvents; 

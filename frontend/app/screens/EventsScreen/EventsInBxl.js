@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
 // Local imports
 import eventsTest from  '../../utils/eventsTest.js';
 import EventTemplate from '../../components/EventTemplate/Index.js'
-// import styles from './styles'
+ import styles from './styles'
 
 
 const eventsScreen = props => {
@@ -14,7 +14,7 @@ const eventsScreen = props => {
          <EventTemplate key={item.key} imageUri={item.imageUri} title={item.title} />
        ))};
   return (
-    <View style={styles.events} >
+    <View >
     <Text style={styles.text}> Events in brussels </Text>
     <View style={styles.container}>
               {maping()}
@@ -24,21 +24,4 @@ const eventsScreen = props => {
     </View>
 )}
 
-
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        flexWrap:'wrap',
-        margin: 20,
-      },
-      events: {
-      justifyContent: 'center',
-    },
-    text: {
-      marginTop:10,
-      textAlign:'center',
-      fontSize: 25,
-    }
-})
 export default eventsScreen; 
