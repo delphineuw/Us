@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+// Local imports
 import Dealsoftheweek from './Dealsoftheweek'
 import EventsInBxl from './EventsInBxl'
 import YourEvents from './YourEvents'
