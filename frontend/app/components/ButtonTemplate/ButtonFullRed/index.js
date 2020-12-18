@@ -2,16 +2,15 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 // Local imports
-import styles from './stylesRed';
-// import styles from './stylesGreen';
+import styles from './../../ButtonTemplate/styles';
 
-const ButtonTemplate = ({ text, handlePress }) => {
+const ButtonFullRed = ({ text, handlePress }) => {
   
   return (
     <View style={styles.container}> 
         <TouchableOpacity style={styles.containingViewOfButton} onPress={handlePress}>
-            <View style={styles.buttonSave}>
-                <Text style={styles.textSave}>
+            <View style={styles.buttonFullRed}>
+                <Text style={styles.textWhite}>
                     {text}
                 </Text> 
             </View>
@@ -20,4 +19,4 @@ const ButtonTemplate = ({ text, handlePress }) => {
   );
 };
 
-export default ButtonTemplate;
+export default ButtonFullRed;
