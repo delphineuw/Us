@@ -1,237 +1,164 @@
 import * as React from 'react';
-import { Button, View, StyleSheet, Text,TextInput, TouchableOpacity, ImageBackground} from 'react-native';
+import { View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+// local imports
 import  ButtonFullRed from '../components/ButtonTemplate/ButtonFullRed'
+import splash from '../assets/splash.png'
+import FormTemplate from '../components/FormTemplate/index'
+import AllScreen from '../screens/EventsScreen/index'
+import styles from './styles'
 
-// const AppButton = ({ onPress, title }) => (
-//   <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
-//     <Text style={styles.appButtonText}>{title}</Text>
-//   </TouchableOpacity>
-// ); 
+const exampleForm = [
+  {
+    id: 1,
+    render: 'text',
+    placeholder: 'Write here...',
+    label: 'Email',
+    multiline: false,
+    type: 'emailAddress',
+    security: false,
+    autoCapitalize: 'none',
+    value: ''
+  },
+  {
+    id: 2,
+    render: 'text',
+    placeholder: 'Write here...',
+    label: 'Password',
+    multiline: false,
+    type: 'password',
+    security: true,
+    autoCapitalize: 'none',
+    value: ''
+  },
+  {
+    id: 3,
+    render: 'radio',
+    label: 'Gender',
+    options: ['Male', 'Female', 'Other'],
+    value: 'Other'
+  },
+  {
+    id: 4,
+    render: 'date',
+    label: 'Date of birth',
+    value: new Date()
+  }
+];
+
+const Stack = createStackNavigator();
 
 // function SplashScreen({ navigation }) {
-//     return (
-//       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//         <TouchableOpacity  onPress={() => navigation.navigate('Welcome')}>
-//           <View>
-//               <ImageBackground source={{ uri:'file:///Users/sanaajebroun/Desktop/circle-cropped.png'}} style={{ width:200, height:200}} >
-//               </ImageBackground>
-//           </View>
+//      return (
+//        <View style={styles.container}>
+//         <TouchableOpacity onPress={() => navigation.navigate('Welcome')} >
+//             <Image source={splash}  style={{ width:400, height:400, borderRadius: 700, marginTop:150 }} />
 //         </TouchableOpacity>
-//       </View>
+//          </View>
 //     );
-//   }
-//   function WelcomeScreen ({ navigation }) {
-//     return (
-//       <View  style={styles.screenContainer}>
-//         <View style={styles.image}> 
-//           <ImageBackground 
-//               source={{ uri:'file:///Users/sanaajebroun/Desktop/circle-cropped.png'}} 
-//               style={{ width:100, height:100}} />
-//         </View>
-//           <Text style={styles.text}>meet, anywhere,any day </Text>
-//               <AppButton 
-//                   title="Login" 
-//                   size="sm" backgroundColor="#F25C75" 
-//                   onPress={() => navigation.navigate('Login')} 
-//                  />
-//               <AppButton 
-//                   title="Sing up" 
-//                   onPress={() => navigation.navigate('SignUp')}/>
-//               <Text 
-//                 style={styles.text1} 
-//                 onPress={() => navigation.navigate('Events')}> Continue as a guest</Text>
-//       </View>
-//     )
-//   }
-//   function LoginScreen ({ navigation }) {
-//     return (
-//       <View style={styles.screenContainer} >
-//           <View style={styles.image}> 
-//               <ImageBackground 
-//                   source={{ uri:'file:///Users/sanaajebroun/Desktop/circle-cropped.png'}} 
-//                   style={{ width:100, height:100}} />
-//           </View>
-//           <View  style={{
-//               borderBottomColor: '#000000',
-//               borderBottomWidth: 1,
-//             }}>
-//               <TextInput
-//               placeholder='Email'
-//               />  
-//           </View>
-//           <View  style={{
-//               borderBottomColor: '#000000',
-//               borderBottomWidth: 1,
-//             }}>
-//               <TextInput
-//               placeholder='Password'
-//             />  
-//           </View>
-//           <AppButton 
-//           title="Login" />
-    
-//       </View>
-//     )
-//   }
-// function SignUpScreen ({ navigation }) {
-//     return (
-//       <View style={styles.screenContainer} >
-//           <View style={styles.image}> 
-//             <ImageBackground 
-//                 source={{ uri:'file:///Users/sanaajebroun/Desktop/circle-cropped.png'}} 
-//                 style={{ width:100, height:100}} />
-//           </View>
-//           <View  style={{
-//             borderBottomColor: '#000000',
-//             borderBottomWidth: 1,
-//           }}>
-//             <TextInput
-//             placeholder='First Name'
-//             />  
-//         </View>
-//         <View  style={{
-//           borderBottomColor: '#000000',
-//           borderBottomWidth: 1,
-//         }}>
-//           <TextInput
-//           placeholder='last Name'
-//           />  
-//       </View>
-//       <View  style={{
-//         borderBottomColor: '#000000',
-//         borderBottomWidth: 1,
-//       }}>
-//         <TextInput
-//         placeholder='Email'
-//         />  
-//     </View>
-//     <View  style={{
-//       borderBottomColor: '#000000',
-//       borderBottomWidth: 1,
-//     }}>
-//       <TextInput
-//       placeholder='Password'
-//       />  
-//   </View>
-//           <AppButton 
-//           title="Login" />      
-//       </View>
-//     )
-//   }
-  
-//   function ProfileScreen ({ navigation }) {
-//     return (
-//       <View style={styles.screenContainer} >
-//           <Button title="Edit profile" onPress={() => navigation.navigate('Edit')}/>
-//       </View>
-//     )
-//   }
-//   function EventScreen({ navigation }) {
-//     return (
-//       <View style={styles.screenContainer} >
-
-//       </View>
-//     );
-//   }
-
-// function EditScreen ({ navigation }) {
-//     return (
-//       <View style={styles.screenContainer} >
-//       <Button title="Hobbies" />
-//       <Button title="Save" />
-  
-//       </View>
-//     )
-//   }
-  
-
-// const Stack = createStackNavigator();
-
-// function AuthNavigation() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator initialRouteName="Home">
-//         <Stack.Screen name="Home" component={SplashScreen}   />
-//         <Stack.Screen name="Welcome" component={WelcomeScreen} />
-//         <Stack.Screen name="Login" component={LoginScreen} />
-//         <Stack.Screen name="Events" component={EventScreen}   />
-//         <Stack.Screen name="SignUp" component={SignUpScreen}   />
-//         <Stack.Screen name="Profile" component={ProfileScreen}   />
-//         <Stack.Screen name="Edit" component={EditScreen}   />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   screenContainer: {
-//     justifyContent: "center",
-//     flex: 1,
-//     margin:80,
-//   },
-//   appButtonContainer: {
-//     elevation: 8,
-//     backgroundColor: "#F25C75",
-//     paddingVertical: 10,
-//     paddingHorizontal: 12,
-//     margin: 10,
-//     shadowRadius: 3.84,
-//     shadowOpacity: 0.25,
-//     elevation: 5,
-//     margin:20,
-//   },
-//   appButtonText: {
-//     fontSize: 18,
-//     color: "#fff",
-//     fontWeight: "bold",
-//     alignSelf: "center",
-//     textTransform: "uppercase",
-//   },
-//   text: {
-//     fontFamily:'Avenir-Medium',
-//     fontSize:30,
-//     textAlign:'center',
-//     margin:20,
-//     color:"#838383",
-//   },
-//   image: {
-//     marginLeft:70,
-//   },
-//   text1:{
-//     fontSize:19,
-//     textAlign:'center',
-//     margin:20,
-//     color:"#2A0F93",
-//   }
-// });
-
- const Stack = createStackNavigator();
-
-function SplashScreen({ navigation }) {
+//  }
+ function WelcomeScreen ({ navigation }) {
      return (
-       <View>
-        <TouchableOpacity >
-          <View>
-           <Text>hello</Text>
-              </View>
-        </TouchableOpacity>
+    <View style={styles.container}>
+          <Image
+            source={splash}
+            style={{ width:200, height:200, borderRadius:90 }} />
+
+            <Text style={styles.text} > meet anywhere, anyday</Text>
+            <ButtonFullRed
+              text={'login'}
+              handlePress={() => navigation.navigate('Login')}
+              style={styles.button}
+               />
+            <ButtonFullRed
+            text={'Sign up'}
+            handlePress={() => navigation.navigate('SignUp')}
+              />
+            <Text style={styles.text1}
+            onPress={() => navigation.navigate('Events')}> Continue as a guest</Text>
          </View>
-    );
- }
-function AuthNavigation () {
-  return (
-    <View style={{ flex: 1 , justifyContent: 'center', alignItems:'center'}}>
-        <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Home" component={() => <SplashScreen /> } />
-          </Stack.Navigator>
-        </NavigationContainer>
-    </View>
-  )
-  
+   )
 }
 
+function LoginScreen ({ navigation }){
+  return (
+    <View style={styles.container}>
+        <Image
+        source={splash}
+        style={{ width:200, height:200, borderRadius:90}} />
+        <View  style={{
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1,
+          margin:20
+          }}>
+          <TextInput
+        placeholder='Email'
+        />
+    </View>
+    <View
+          style={{
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1,
+          margin:50
+          }}>
+          <TextInput
+          placeholder='Password'
+        />
+    </View>
+
+    <ButtonFullRed
+    text={'login'}
+    style={styles.button}
+     />
+    </View>
+
+  )
+}
+
+function SignUpScreen ({ navigation }){
+  const submitHandler = data => console.log(data);
+
+  return (
+    <View style={styles.container}>
+        <Image
+        source={splash}
+        style={{ width:100, height:100, borderRadius:90  }} />
+        <View style={styles.form}>
+         <FormTemplate inputs={exampleForm} onSubmit={submitHandler} />
+        </View>
+          <ButtonFullRed
+                text={'Submit'}
+                handlePress={() => navigation.navigate('SignUp')}
+                  />
+
+    </View>
+
+  )
+}
+
+
+function EventScreen ({ navigation }){
+  return (
+    <View>
+        <AllScreen/>
+      </View>
+    )
+  }
+
+
+function AuthNavigation () {
+  return (
+        <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="Home" component={WelcomeScreen} />
+              <Stack.Screen name="Login" component={LoginScreen} />
+              <Stack.Screen name="SignUp" component={SignUpScreen} />
+              <Stack.Screen name="Events" component={EventScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+  )
+
+}
 
  export default AuthNavigation;
