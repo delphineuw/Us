@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 // Local imports
 import styles from './styles';
-import splashImg from '../../assets/splash.png';
+//import splashImg from '../../assets/splash.png';
 
 const Example = props => {
   const [isClicked, setIsClicked] = useState(false);
