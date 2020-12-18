@@ -16,7 +16,7 @@ const HobbiesScreen = props => {
 
     const maping = () => {
         return hobbiesTest.map((item) => (
-            <HobbieTemplate key={item.key} imageUri={item.imageUri} title={item.title} />
+            <HobbieTemplate key={item.key} imageUri={item.imageUri} hobby={item.hobby} />
        ))};
     
   return (
