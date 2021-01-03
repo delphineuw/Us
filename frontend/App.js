@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStore } from 'redux';
 import { Provider, useSelector } from 'react-redux';
+import { AppLoading } from 'expo';
+import { useFonts, Chilanka_400Regular } from '@expo-google-fonts/chilanka';
 
 // Local imports
 import MainNavigator from './app/navigation/MainNavigator';
@@ -16,11 +18,19 @@ const StateHandler = () => {
 };
 
 const App = () => {
-  return (
-    <Provider store={store}>
-      <StateHandler />
-    </Provider>
-  );
+  let [fontsLoaded] = useFonts({
+    Chilanka_400Regular
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <Provider store={store}>
+        <StateHandler />
+      </Provider>
+    );
+  }
 };
 
 export default App;
