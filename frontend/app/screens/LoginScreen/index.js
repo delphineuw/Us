@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
 
 // Local imports
 import logo from '../../assets/logo.png';
@@ -35,7 +35,7 @@ const LoginScreen = props => {
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
-      <Form inputs={loginForm} submitHandler={() => {}} />
+      <Form inputs={loginForm} onSubmit={val => console.log(val)} />
     </View>
   );
 };
