@@ -17,7 +17,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         margin: 20,
-    }
+    },
+    btnContainer: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        marginRight: '85%',
+    },
     });
 
 export default styles;
