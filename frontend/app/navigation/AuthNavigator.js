@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/LoginScreen/index';
 import SignupScreen from '../screens/SignupScreen/index';
 import WelcomeScreen from '../screens/WelcomeScreen/index';
+import FiltersScreen from '../screens/FiltersScreen/index';
 
 // Scan Navigation (Stack)
 const Stack = createStackNavigator();
@@ -27,6 +28,16 @@ const AuthNavigator = () => {
         <Stack.Screen
           name="SignupScreen"
           component={SignupScreen}
+          options={{
+            headerShown: true,
+            headerTitle: null,
+            headerBackTitle: null,
+            headerStyle: { shadowOpacity: 0, elevation: 0 }
+          }}
+        />
+        <Stack.Screen
+          name="FiltersScreen"
+          component={FiltersScreen}
           options={{
             headerShown: true,
             headerTitle: null,

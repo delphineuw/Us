@@ -66,8 +66,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    buttonFilterBig: {
+        marginTop: 25,
+        borderWidth: 1,
+        borderColor: 'green',
+        backgroundColor: '#047C7C',
+        width: 300,
+        borderRadius: 100,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     textWhite: {
-        color: 'white',
+        color: 'black',
         fontSize: 20,
     },
     textRed: {
