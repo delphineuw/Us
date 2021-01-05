@@ -7,7 +7,6 @@ import styles from './styles';
 import ButtonFullRed from '../../components/ButtonTemplate/ButtonFullRed/index';
 import ButtonEmptyBlack from '../../components/ButtonTemplate/ButtonEmptyBlack/index';
 import ButtonFilterBig from '../../components/ButtonTemplate/ButtonFilterBig/index';
-im
 
 
 

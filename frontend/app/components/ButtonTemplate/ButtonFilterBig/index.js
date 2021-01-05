@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 // Local imports
-import styles from './../../ButtonTemplate/styles';
+import styles from './../styles';
 
 const ButtonFilterBig = ({ text, handlePress }) => {
   
