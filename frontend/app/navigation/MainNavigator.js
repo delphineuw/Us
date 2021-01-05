@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 
 // Local imports
-import ProfileScreen from '../screens/ProfileScreen/index';
+import ProfileNavigator from './ProfileNavigator';
 import EventScreen from '../screens/EventScreen/index';
 import SearchScreen from '../screens/SearchScreen/index';
 
@@ -14,7 +14,7 @@ const MainNavigator = () => {
     <Tab.Navigator initialRouteName="Profile" tabBarOptions={tabOptions}>
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileNavigator}
         options={{
           tabBarIcon: ({ size, color }) => <FontAwesome name="user" size={size} color={color} />
         }}
