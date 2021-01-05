@@ -63,7 +63,6 @@ const EventEditScreen = props => {
           <Button title="Upload" onPress={() => console.log('Click')} />
         </View>
         <Form inputs={editForm} onSubmit={val => console.log(val)} />
-        <Button title="Hobbies" onPress={() => props.navigation.navigate('EditHobbiesScreen')} />
       </View>
     </View>
   );
