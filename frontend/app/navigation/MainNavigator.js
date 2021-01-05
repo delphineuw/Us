@@ -4,7 +4,7 @@ import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-ico
 
 // Local imports
 import ProfileNavigator from './ProfileNavigator';
-import EventScreen from '../screens/EventScreen/index';
+import EventNavigator from './EventNavigator';
 import SearchScreen from '../screens/SearchScreen/index';
 
 // Main navigation (Bottom Tab)
@@ -21,7 +21,7 @@ const MainNavigator = () => {
       />
       <Tab.Screen
         name="Event"
-        component={EventScreen}
+        component={EventNavigator}
         options={{
           tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="calendar" size={size} color={color} />
         }}
