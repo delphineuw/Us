@@ -8,7 +8,7 @@ const ButtonFullRed = ({ text, handlePress }) => {
   
   return (
     <View> 
-        <TouchableOpacity style={styles.containingViewOfButton} onPress={handlePress}>
+        <TouchableOpacity onPress={handlePress}>
             <View style={styles.buttonFullRed}>
                 <Text style={styles.textWhite}>
                     {text}

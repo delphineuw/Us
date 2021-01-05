@@ -7,21 +7,21 @@ const styles = StyleSheet.create({
     //     justifyContent: 'flex-start',
     //     paddingTop: '15%',
     // },
-    head: {
-        color: 'black',
-        fontSize: 30
-    },
-    containingViewOfButton: {
-        flexDirection: 'column',
-        bottom: 0,
-        marginBottom: 50,
-        margin: 20,
-        borderColor: 'black',
-        justifyContent: 'flex-end',
-        position: 'absolute',
-        alignItems: 'center',
+    // head: {
+    //     color: 'black',
+    //     fontSize: 30
+    // },
+    // containingViewOfButton: {
+    //     flexDirection: 'column',
+    //     bottom: 0,
+    //     marginBottom: 50,
+    //     margin: 20,
+    //     borderColor: 'black',
+    //     justifyContent: 'flex-end',
+    //     position: 'absolute',
+    //     alignItems: 'center',
         
-    },
+    // },
     buttonFullRed: {
         marginTop: 25,
         borderWidth: 1,

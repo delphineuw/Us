@@ -19,9 +19,11 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btnContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        marginRight: '85%',
+        width: '100%',  
+        justifyContent: 'center', 
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 45
     },
     });
 
