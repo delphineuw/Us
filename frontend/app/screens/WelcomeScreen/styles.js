@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Chilanka_400Regular',
     marginVertical: 30
   },
-  guest: { color: '#0000ee', fontSize: 18 }
+  guest: { color: '#0000ee', fontSize: 18, marginTop: 15 }
 });
 
 export default styles;

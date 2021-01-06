@@ -29,7 +29,7 @@ const App = () => {
   } else {
     return (
       <Provider store={store}>
-        <StateHandler />      
+        <StateHandler />   
       </Provider>
     );
   }
