@@ -20,6 +20,7 @@ const HobbiesScreen = props => {
        ))};
     
   return (
+      
     <View style={styles.container}> 
 
         <Text style={styles.head}>
@@ -30,8 +31,10 @@ const HobbiesScreen = props => {
            {maping()}
         </View>
 
-        <ButtonFullRed text={'save'} handlePress={handlePress} />
-
+        <View style={styles.btnContainer}>
+            <ButtonFullRed text={'save'} handlePress={handlePress} />
+        </View>
+        
     </View>
   );
 };
