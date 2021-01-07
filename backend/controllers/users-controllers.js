@@ -1,57 +1,42 @@
-// CRUD Examples
+const selectAll = (req, res, next) => {
+  const {id} = req.params 
+  let message = "A get req has been made "
+  console.log(message)
+  res.status(500).json('error')
+}
 
-// Create User
-const will = User.build({ firstName: 'Will', lastName: 'Smith' });
+const saveUser = (req, res, next) => {
+  console.log(req.body)
+  console.log(`A ${req.method} has been made`)
+  res.status(500).json('error')
+}
 
-// Save User to Database
-const saveUser = async () => {
-  try {
-    // const will = await User.create({ firstName: 'Will', lastName: 'Smith' });
-    await will.save();
-    console.log('Jane was saved to the database!');
-  } catch (error) {
-    console.error('Unable to save User:', error);
-  }
-};
+const selectOne = (req, res, next) => {
+  const {id} = req.params
+  console.log(`A ${req.method} has been made with ID ${req.params.id}`)
+  res.status(500).json('error')
+}
 
-// saveUser();
+const deleteUser = (req, res, next) => {
+  const {id} = req.params
+  console.log(`A ${req.method} has been made with ID ${req.params.id}`)
+  res.status(500).json('error')
+}
 
-// Delete User from Database
-const deleteUser = async () => {
-  try {
-    await will.destroy();
-    console.log('Jane was removed from the database!');
-  } catch (error) {
-    console.error('Unable to delete User:', error);
-  }
-};
+module.exports = {
+  deleteUser,
+  selectAll,
+  selectOne,
+  saveUser
+}
 
-// deleteUser();
 
-// Get Users from Database
-const selectAll = async () => {
-  try {
-    const users = await User.findAll();
-    console.log('All users:', JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Unable to fetch:', error);
-  }
-};
 
-// selectAll();
 
-// Get Users from Database
-const selectOne = async () => {
-  try {
-    const users = await User.findAll({
-      where: {
-        id: 2
-      }
-    });
-    console.log('One users:', JSON.stringify(users, null, 2));
-  } catch (error) {
-    console.error('Unable to fetch:', error);
-  }
-};
 
-// selectOne();
+
+
+
+
+
+
