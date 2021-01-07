@@ -4,23 +4,16 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 import { Fontisto } from '@expo/vector-icons'; 
 
-
 import UserTemplate from '../../components/UserTemplate/index'
 import userExample from '../../utils/UserExample'
 import hobbiesTest from '../../utils/hobbiesTest'
-
 import styles from './styles';
 
 const ProfileScreen = props => {
-    
-        <UserTemplate 
-            
-            />
-
   return (
     <View>
       <UserTemplate
-      key={userExample.key} 
+            key={userExample.key} 
             imageUri={userExample.imageUri} 
             firstName={userExample.firstName} 
             lastName={userExample.lastName} 
@@ -35,6 +28,7 @@ const ProfileScreen = props => {
             hobby3 = {userExample.hobbies[2].name}
             imageHobby3 = {userExample.hobbies[2].image}  
       />
+
     </View>
 
      

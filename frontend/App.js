@@ -10,34 +10,30 @@ import { View } from 'react-native'
 import MainNavigator from './app/navigation/MainNavigator';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import authReducer from './app/store/auth-reducer';
-import ProfileScreen from './app/screens/ProfileScreen/index'
 
-// const store = createStore(authReducer);
 
-// const StateHandler = () => {
-//   const isLogged = useSelector(state => state.isLogged);
-//   return <NavigationContainer>{isLogged ? <MainNavigator /> : <AuthNavigator />}</NavigationContainer>;
-// };
+
+
+const store = createStore(authReducer);
+
+ const StateHandler = () => {
+ const isLogged = useSelector(state => state.isLogged);
+   return <NavigationContainer>{isLogged ? <MainNavigator /> : <AuthNavigator />}</NavigationContainer>;
+ };
 
 const App = () => {
-  // let [fontsLoaded] = useFonts({
-  //   Chilanka_400Regular
-  // });
-
-  // if (!fontsLoaded) {
-  //   return <AppLoading />;
-  // } else {
-  //   return (
-  //     <Provider store={store}>
-  //       <StateHandler />
-  //     </Provider>
-  //   );
-  // }
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-       <ProfileScreen />
-    </View>
-  )
+  let [fontsLoaded] = useFonts({
+    Chilanka_400Regular
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <Provider store={store}>
+        <StateHandler />      
+      </Provider>
+    );
+  }
 };
 
 export default App;

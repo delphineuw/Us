@@ -1,31 +1,26 @@
-const { DataTypes } = require('sequelize');
-
-// Local imports
-const sequelize = require('../utils/config');
-
-// Sequelize Model
-const Event = sequelize.define(
-  'Event',
-  {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Event extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-  },
-  {
-    // Other model options go here
-  }
-);
-
-// Sync Model(s)
-(async () => {
-  try {
-    // await sequelize.sync({ force: true }); ==> Sync all models
-    await Event.sync();
-    console.log('The table for the Event model was just (re)created!');
-  } catch (error) {
-    console.error('Unable to sync Event:', error);
-  }
-})();
-
-module.exports = Event;
+  };
+  Event.init({
+    title: DataTypes.STRING,
+    image: DataTypes.STRING,
+    description: DataTypes.STRING,
+    location: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Event',
+  });
+  return Event;
+};
