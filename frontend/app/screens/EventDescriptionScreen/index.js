@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 // Local imports
 import styles from './styles';
 import ButtonFullRed from '../../components/ButtonTemplate/ButtonFullRed';
+import MiniMap from '../../components/MiniMap/index.js';
 import eventTest from '../../utils/eventTest.js';
 import hobbiesTest from '../../utils/hobbiesTest.js';
 import participantsTest from '../../utils/participantsTest.js';
@@ -15,9 +16,14 @@ import participantsTest from '../../utils/participantsTest.js';
 
 const EventDescriptionScreen = props => {
 
+  const maping = () => {
+    return participantsTest.map((item) => (
+        <Image key={item.key} source={item.imageUri} style={styles.imgPart}/>
+   ))};
+
   return (
     <View style={styles.container}> 
-      <ScrollView>
+      <ScrollView showsHorizontalScrollIndicator={false}>
 
         <View>
           <Image style={styles.head} source={hobbiesTest[1].imageUri} />
@@ -61,23 +67,36 @@ const EventDescriptionScreen = props => {
         </View>
 
         <View style={styles.layerWhite}></View>
-
-        <View style={styles.layer}>
-          <Text>
-            Hosting by 
-          </Text>
-          <View> 
-            <Image style={styles.imgHost} source={participantsTest[0].imageUri} />
+        
+        <TouchableOpacity>
+          <View style={styles.layer}>
+            <Text>
+              Hosting by 
+            </Text>
+            <View> 
+              <Image style={styles.imgPart} source={participantsTest[0].imageUri} />
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
 
-        <View>
-          <Text style={styles.layer}>
-            People going
-          </Text>
-        </View>
+        <TouchableOpacity>
+          <View style={styles.layer}>
+            <Text>
+              People going
+            </Text>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+              <View style={styles.imgFlex}> 
+                {maping()}
+              </View>
+            </ScrollView>
+          </View>
+        </TouchableOpacity>
+
+        <MiniMap />
 
       </ScrollView>
+
+      
 
       <View style={styles.btnContainer} >
         <ButtonFullRed text={'join !'} />
