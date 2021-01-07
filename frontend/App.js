@@ -10,8 +10,6 @@ import MainNavigator from './app/navigation/MainNavigator';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import authReducer from './app/store/auth-reducer';
 
-import EventDescriptionScreen from './app/screens/EventDescriptionScreen';
-
 const store = createStore(authReducer);
 
 const StateHandler = () => {
@@ -29,8 +27,7 @@ const App = () => {
   } else {
     return (
       <Provider store={store}>
-        {/* <StateHandler />  */}
-        <EventDescriptionScreen />   
+        <StateHandler />
       </Provider>
     );
   }
