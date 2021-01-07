@@ -5,6 +5,8 @@ const eventTest = [
         date: '21/02/2021',
         time: 'Today 19:00 - 20:00',
         address: 'Parvis de Saint-Gilles 28, 1060 Saint-Gilles',
+        coordinate: {longitude: 4.345936195998279, latitude: 50.83090781978249}
+        
     },
 ]
 

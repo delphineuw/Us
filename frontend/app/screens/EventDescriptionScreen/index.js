@@ -7,6 +7,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 // Local imports
 import styles from './styles';
 import ButtonFullRed from '../../components/ButtonTemplate/ButtonFullRed';
+import MiniMap from '../../components/MiniMap/index.js';
 import eventTest from '../../utils/eventTest.js';
 import hobbiesTest from '../../utils/hobbiesTest.js';
 import participantsTest from '../../utils/participantsTest.js';
@@ -91,7 +92,11 @@ const EventDescriptionScreen = props => {
           </View>
         </TouchableOpacity>
 
+        <MiniMap />
+
       </ScrollView>
+
+      
 
       <View style={styles.btnContainer} >
         <ButtonFullRed text={'join !'} />
