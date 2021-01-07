@@ -1,22 +1,15 @@
-import React, {useState} from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-
-// Local imports
-import styles from './styles';
-
+import React from 'react';
+import { View, Text, TouchableOpacity} from 'react-native';
+import styles from './styles'
 const ButtonFilter = ({ text, handlePress, isSelected }) => {
-    const color = isSelected ? styles.buttonFilter : styles.buttonFilterColor;
-  return (
-    <View style={styles.container}> 
-        <TouchableOpacity style={styles.containingViewOfButton} onPress={() => handlePress(text)}>
-            <View style={color}>
-                <Text style={styles.textBtn}>
-                    {text}
-                </Text> 
-            </View>
-        </TouchableOpacity>
-    </View>
-  );
-};
+    const color = isSelected ? styles.buttonSelected : styles.button;
+    return (
+      <TouchableOpacity onPress={() => handlePress(text)} style={color}>
+        <Text style={styles.title}>{text}</Text>
+      </TouchableOpacity>
+    )
+}
+
+    
 
 export default ButtonFilter;

@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
-import { View, Image, Text, TextInput } from 'react-native';
+import { View, Image, Text, TextInput, Alert } from 'react-native';
 
 // Local imports
 import logo from '../../assets/logo.png';
 import styles from './styles';
-//import ButtonEmptyBlack from '../../components/ButtonTemplate/ButtonEmptyBlack/index';
-import ButtonFilterBig from '../../components/ButtonTemplate/ButtonFilterBig/index';
-import ButtonFilterSmall from '../../components/ButtonTemplate/ButtonFilterSmall';
-import ButtonFilterMedium from '../../components/ButtonTemplate/ButtonFilterMedium/index';
+//import ButtonEmptyBlack from '../../components/ButtonTemplate/ButtonEmptyBlack/index'
 import ButtonFilter from '../../components/ButtonTemplate/ButtonFilter';
 
 const FiltersScreen = props => {
   // const [isSelected, setSelected] = useState("false");
 
     const handlePress = () => {
-      //  setSelected(!isSelected)
-      //  console.log(isSelected)
+      Alert.alert('jai ete clicker')
       }
 
       
@@ -46,7 +42,7 @@ const FiltersScreen = props => {
 
     const hostGenders = [{
       name: "FEMALE",
-      isSelected : false
+      isSelected : true
     },
     {
       name: "MALE",
@@ -56,11 +52,11 @@ const FiltersScreen = props => {
 
 
     const keywords= [{
-      name: "bruxelles",
+      name: "BRUXELLES",
       isSelected: false
     },
     {
-      name: "Museum",
+      name: "MUSEUM",
       isSelected: false
     }
    ]
@@ -69,10 +65,8 @@ const FiltersScreen = props => {
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
       <Text style={styles.filter}>My Filters</Text>
-      
-      <View style={styles.containerFilter}>
-        <Text style={styles.filtertext}>ACTIVITY</Text>
-      <View style= {styles.buttonContainer}>
+        <Text style={styles.filtertext}>ACTIVITY</Text> 
+      <View style= {styles.containerFilter}>
            {selectedActivities.map((activity) => {
             console.log(activity)
               return( 
@@ -81,32 +75,31 @@ const FiltersScreen = props => {
           })}
       </View>
         
-    </View> 
+    
 
       <Text style={styles.filtertext}>HOSTED BY</Text>
-    <View style={styles.containerFilter}>
+     <View style={styles.containerFilter}> 
         {hostGenders.map(gender => {
           return( 
-            <ButtonFilter text={gender.name} handlePress={handlePress} isSelected={gender.isSelected} />
+            <ButtonFilter key={gender.name} text={gender.name} handlePress={handlePress} isSelected={gender.isSelected} />
           )
         })}
-    </View> 
+     </View> 
 
       <Text style={styles.filtertext}>KEYWORDS</Text>
-      <View style={styles.containerFilter}>  
+       <View style={styles.containerFilter}> 
         {keywords.map(keyword => {
           return( 
             <ButtonFilter text={keyword.name} handlePress={handlePress} isSelected={keyword.isSelected} />
           )
         })}
-      </View>
+       </View> 
 
-      <Text style={styles.filtertext}>DATE</Text>
-         <TextInput value={"start"}>    
-         </TextInput>
-         <TextInput value={"end"}>    
-         </TextInput>
-         <ButtonFilter text={'verification'} handlePress={() => { console.log('jai été clicked')}} />
+       <Text style={styles.filtertext}>DATE</Text>
+       <View style={styles.containerFilter}>
+         <ButtonFilter text={'Start'} handlePress={() => { console.log('jai été clicked')}} />
+         <ButtonFilter text={'End'} handlePress={() => { console.log('jai été clicked')}} />
+         </View>
     </View>
   );
 };

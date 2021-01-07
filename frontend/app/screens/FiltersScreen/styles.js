@@ -2,49 +2,36 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: { 
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFF',
     
   },
   logo: {
+    marginTop: 35,
     width: 100,
     height: 100
   },
 
   containerFilter: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center', 
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
-    
-    width: 100,
-    height: 300,
-  },
-
-  buttonContainer:{
-    flex: 1,
     flexDirection: 'row',
-    width: 100,
-    height: 200,
-    backgroundColor: 'red',
-
+    alignItems: 'center',  
+    justifyContent: "space-between",
+    
   },
 
   filter: {
     fontSize: 30,
     color: 'black',
     fontFamily: 'Chilanka_400Regular',
-    marginVertical: 20,
     borderBottomColor: 'black',
     borderBottomWidth: 1,
   },
   filtertext: {
     fontSize: 20,
-    marginVertical: 20,
-    padding: 10,
+    
+    padding: 3,
     color: 'black',
     fontFamily: 'Chilanka_400Regular', 
   },
