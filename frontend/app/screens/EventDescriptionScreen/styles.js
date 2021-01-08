@@ -48,11 +48,18 @@ const styles = StyleSheet.create({
     layerWhite: {
         padding: 15,
     },
-    imgHost: {
+    imgFlex: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    imgPart: {
         width: 40,
         height: 40,
         borderRadius: 50/2,
-        margin: 5
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 5,
+        marginRight: 0,
     },
     btnContainer: {
         width: '100%',  
