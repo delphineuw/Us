@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import EventScreen from '../screens/EventScreen/index';
 import EventEditScreen from '../screens/EventEditScreen/index';
 import EventDescriptionScreen from '../screens/EventDescriptionScreen/index';
+import ParticipantScreen from '../screens/ParticipantsScreen/index';
 
 // Scan Navigation (Stack)
 const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ const ProfileNavigator = () => {
         <Stack.Screen name="EventScreen" component={EventScreen} />
         <Stack.Screen name="EventEditScreen" component={EventEditScreen} />
         <Stack.Screen name="EventDescriptionScreen" component={EventDescriptionScreen} />
+        <Stack.Screen name="ParticipantScreen" component={ParticipantScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

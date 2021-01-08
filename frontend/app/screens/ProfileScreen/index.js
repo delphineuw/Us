@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Button } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
@@ -11,8 +11,8 @@ import styles from './styles';
 
 const ProfileScreen = props => {
   return (
-    <View>
-      <UserTemplate
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {/* <UserTemplate
         key={userExample.key}
         imageUri={userExample.imageUri}
         firstName={userExample.firstName}
@@ -27,7 +27,9 @@ const ProfileScreen = props => {
         imageHobby2={userExample.hobbies[1].image}
         hobby3={userExample.hobbies[2].name}
         imageHobby3={userExample.hobbies[2].image}
-      />
+      /> */}
+      <Button title="hobbies" onPress={() => props.navigation.navigate('EditHobbiesScreen')} />
+      <Button title="edit" onPress={() => props.navigation.navigate('EditProfileScreen')} />
     </View>
   );
 };

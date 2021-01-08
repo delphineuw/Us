@@ -6,7 +6,6 @@ import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 
 const UserTemplate = ({
-  key,
   imageUri,
   firstName,
   lastName,
