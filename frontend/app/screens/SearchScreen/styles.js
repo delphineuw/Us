@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   },
   filtertext: {
     fontSize: 20,
-    
     padding: 3,
     color: 'black',
     fontFamily: 'Chilanka_400Regular', 

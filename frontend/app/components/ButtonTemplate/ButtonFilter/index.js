@@ -10,6 +10,4 @@ const ButtonFilter = ({ text, handlePress, isSelected, value }) => {
     )
 }
 
-    
-
 export default ButtonFilter;
