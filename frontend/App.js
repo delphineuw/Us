@@ -21,7 +21,6 @@ const App = () => {
   let [fontsLoaded] = useFonts({
     Chilanka_400Regular
   });
-
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {

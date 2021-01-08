@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, Button } from 'react-native';
 
 // Local imports
+import CustomButton from '../ButtonTemplate/ButtonFullRed/index';
 import InputTemplate from '../InputTemplate/index';
 import RadioTemplate from '../RadioTemplate/index';
 import DatePickerTemplate from '../DatePickerTemplate/index';
@@ -67,7 +68,7 @@ const FormTemplate = props => {
     <View style={styles.container}>
       <ScrollView style={styles.inputs}>{formValues.map(input => renderInput(input))}</ScrollView>
       <View style={{ marginTop: 30 }}>
-        <Button title="Submit" onPress={() => props.onSubmit(formValues)} />
+        <CustomButton text="Submit" handlePress={() => props.onSubmit(formValues)} />
       </View>
     </View>
   );

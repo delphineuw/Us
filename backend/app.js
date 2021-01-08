@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const routes = require('./routes')
 
 // Local imports
 const sequelize = require('./utils/config');
@@ -14,17 +15,14 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Registered Routes
-/*
-app.use('/api/users', usersRoute);
-app.use('/api/events', eventsRoute);
-app.use('/api/activities', activitiesRoute);
-*/
+app.use('/api', routes)
 
 // Error Handling Middleware
 app.use((error, req, res, next) => {
   console.log(error);
   res.json({ message: error.message || 'An unknown error occured.' });
 });
+
 
 // Server Start & Database connection
 sequelize

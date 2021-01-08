@@ -17,7 +17,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         margin: 20,
-    }
+    },
+    btnContainer: {
+        width: '100%',  
+        justifyContent: 'center', 
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 45
+    },
     });
 
 export default styles;
