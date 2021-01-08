@@ -9,6 +9,7 @@ const EventScreen = props => {
       <Text>Events</Text>
       <Button title="EDIT" onPress={() => props.navigation.navigate('EventEditScreen')} />
       <Button title="Description" onPress={() => props.navigation.navigate('EventDescriptionScreen')} />
+      <Button title="Participant" onPress={() => props.navigation.navigate('ParticipantScreen')} />
     </View>
   );
 };
