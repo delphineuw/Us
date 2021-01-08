@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     
   },
   logo: {
-    marginTop: 35,
+    marginTop: 10,
     width: 100,
     height: 100
   },
@@ -18,15 +18,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',  
     justifyContent: "space-between",
-    
+  
   },
 
   filter: {
-    fontSize: 30,
+    fontSize: 35,
     color: 'black',
     fontFamily: 'Chilanka_400Regular',
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
+    marginTop:10,
+    margin: 10,
+   
   },
   filtertext: {
     fontSize: 20,
@@ -35,6 +36,12 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'Chilanka_400Regular', 
   },
+
+  separator:{
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    width: 400,
+   }
   
 });
 export default styles;

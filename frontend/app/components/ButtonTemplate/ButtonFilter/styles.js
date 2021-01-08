@@ -11,12 +11,14 @@ const styles = StyleSheet.create({
       margin: 20,
       padding: 5,
      borderColor: 'black',
+     width: 100,
   }, 
   buttonSelected:{
       borderRadius: 10,
-      backgroundColor: 'yellow',
+      backgroundColor: 'pink',
       margin: 20,
-      padding: 5
+      padding: 5,
+      width: 100,
   }
 });
 
