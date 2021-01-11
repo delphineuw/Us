@@ -1,18 +1,3 @@
-// import React from 'react';
-// import { View, Text } from 'react-native';
-
-// import styles from './styles';
-
-// const SearchScreen = props => {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Search</Text>
-//     </View>
-//   );
-// };
-
-// export default SearchScreen;
-
 import React, {useState} from 'react';
 import { View, Image, Text, Alert, TextInput } from 'react-native';
 
@@ -20,6 +5,7 @@ import { View, Image, Text, Alert, TextInput } from 'react-native';
 import logo from '../../assets/logo.png';
 import styles from './styles';
 import ButtonFilter from '../../components/ButtonTemplate/ButtonFilter';
+import Form from '../../components/FormTemplate/index';
 
 
 
@@ -28,25 +14,42 @@ const Separator = () => (
 );
 
 
-    const UselessTextInput = () => {
-    const [value, onChangeText] = React.useState('23/01/2021');
+const editForm = [
+  {
+    id: 4,
+    render: 'date',
+    label: 'Start Date',
+    value: new Date()
+  },
+  {
+    id: 5,
+    render: 'date',
+    label: 'End Date',
+    value: new Date()
+  }
+];
 
-     return (
-       <>
-     <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1, width:100, margin: 10, left: 150, justifyContent: "center"}}
-      onChangeText={text => onChangeText(text)}
-      value={value}
-    />
-     <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1, width:100, margin: 10, right: 150, }}
-      onChangeText={text => onChangeText(text)}
-      value={value}
-    />
-    </>
+
+
+//     const UselessTextInput = () => {
+//     const [value, onChangeText] = React.useState('23/01/2021');
+
+//      return (
+//        <>
+//      <TextInput
+//       style={{ height: 40, borderColor: 'gray', borderWidth: 1, width:100, margin: 10, left: 150, justifyContent: "center"}}
+//       onChangeText={text => onChangeText(text)}
+//       value={value}
+//     />
+//      <TextInput
+//       style={{ height: 40, borderColor: 'gray', borderWidth: 1, width:100, margin: 10, right: 150, }}
+//       onChangeText={text => onChangeText(text)}
+//       value={value}
+//     />
+//     </>
     
-  );
-}
+//   );
+// }
  
 
 const SearchScreen = props => {
@@ -54,9 +57,9 @@ const SearchScreen = props => {
   
 
     const handlePress = () => {
-      Alert.alert('jai ete clicker')
-      // setSelected(!isSelected)
-      // console.log(isSelected)
+      // Alert.alert('jai ete clicker')
+      setSelected(!isSelected)
+      console.log(isSelected)
       }
 
       
@@ -71,22 +74,22 @@ const SearchScreen = props => {
     },
     {
       name : "AFTER WORKS",
-       isSelected: true
+       isSelected: false
     } 
     ];
 
 
     const [selectedActivities, setSelectedActivities] = useState(activities);
     
-    const newActivity = [{
-      name :  "HOTELS",
-      isSelected :false
-    }]
+    // const newActivity = [{
+    //   name :  "HOTELS",
+    //   isSelected :false
+    // }]
     
     const selectActivity = ( activity) => {
       console.log(activity)
 
-       setSelectedActivities(newActivity)
+      //  setSelectedActivities(activity)
       //  setSelected(!isSelected)
       //  console.log(isSelected)
       }
@@ -119,46 +122,45 @@ const SearchScreen = props => {
       <Text style={styles.filter}>My Filters</Text>
       <Separator />
 
-        <Text style={styles.filtertext}>ACTIVITY</Text> 
-      <View style= {styles.containerFilter}>
+      <Text style={styles.filtertext}>ACTIVITY</Text> 
+
+        <View style= {styles.containerFilter}>
            {selectedActivities.map((activity) => {
             console.log(activity)
-              return( 
-               <ButtonFilter key={activity.name} text={activity.name} handlePress={selectActivity} isSelected={activity.isSelected} />
+              return(      
+                 <ButtonFilter key={activity.name} text={activity.name} handlePress={selectActivity} />
            )
           })}
-      </View>
-      <Separator />
-     
-        
-    
+        </View>
+         <Separator />
 
-      <Text style={styles.filtertext}>HOSTED BY</Text>
-     <View style={styles.containerFilter}> 
-        {hostGenders.map(gender => {
-          return( 
+        <Text style={styles.filtertext}>HOSTED BY</Text>
+        <View style={styles.containerFilter}> 
+          {hostGenders.map(gender => {
+           return( 
             <ButtonFilter key={gender.name} text={gender.name} handlePress={handlePress} isSelected={gender.isSelected} />
           )
-        })}
-     </View> 
-     <Separator />
+         })}
+        </View> 
+         <Separator />
 
-      <Text style={styles.filtertext}>KEYWORDS</Text>
-       <View style={styles.containerFilter}> 
-        {keywords.map(keyword => {
-          return( 
+        <Text style={styles.filtertext}>KEYWORDS</Text>
+        <View style={styles.containerFilter}> 
+          {keywords.map(keyword => {
+             return( 
             <ButtonFilter key={keyword.name} text={keyword.name} handlePress={handlePress} isSelected={keyword.isSelected} />
           )
-        })}
-       </View>
-       <Separator />
+         })}
+        </View>
+         <Separator />
 
-       <Text style={styles.filtertext}>DATE</Text>
-       <View style={styles.containerFilter}>
+          <Text style={styles.filtertext}>DATE</Text>
+        <View style={styles.containerFilterDate}>
 
-         <UselessTextInput/>
         
-         </View>
+         <Form inputs={editForm} onSubmit={val => console.log(val)} />
+        
+        </View>
         
     </View>
   );

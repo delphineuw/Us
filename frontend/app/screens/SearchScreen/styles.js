@@ -5,11 +5,11 @@ const styles = StyleSheet.create({
     // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFF',
-    
+    backgroundColor: '#FFFF',  
   },
+
   logo: {
-    marginTop: 10,
+    marginTop: 60,
     width: 100,
     height: 100
   },
@@ -18,7 +18,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',  
     justifyContent: "space-between",
-  
+    height: 60,
+    bottom: 10,
+  },
+
+  containerFilterDate: {
+    flexDirection: 'row',
+    alignItems: 'center',  
+    justifyContent: "space-between",
+    // backgroundColor: "yellow",
+    bottom: 35,
+    height: 250,
+    
   },
 
   filter: {
@@ -31,7 +42,7 @@ const styles = StyleSheet.create({
   },
   filtertext: {
     fontSize: 20,
-    padding: 3,
+    padding: 2,
     color: 'black',
     fontFamily: 'Chilanka_400Regular', 
   },

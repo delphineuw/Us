@@ -12,6 +12,8 @@ const styles = StyleSheet.create({
       padding: 5,
      borderColor: 'black',
      width: 100,
+     height: 40,
+    
   }, 
   buttonSelected:{
       borderRadius: 10,
@@ -19,6 +21,7 @@ const styles = StyleSheet.create({
       margin: 20,
       padding: 5,
       width: 100,
+      height: 40,
   }
 });
 export default styles;
