@@ -11,14 +11,23 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      image: {
-        type: Sequelize.STRING
-      },
       description: {
         type: Sequelize.STRING
       },
       location: {
         type: Sequelize.STRING
+      },
+      start: {
+        type: Sequelize.DATE
+      },
+      end: {
+        type: Sequelize.DATE
+      },
+      isFinished: {
+        type: Sequelize.BOOLEAN
+      },
+      limited: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
