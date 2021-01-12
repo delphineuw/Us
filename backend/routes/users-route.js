@@ -1,22 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const usersControllers = require('../controllers/users-controllers')
+const usersControllers = require('../controllers/users-controllers');
 
+// Post new User:
+router.post('/', usersControllers.saveUser);
 
-// Get all Users: 
-router.post("/", usersControllers.saveUser)
+// Get One User
+router.get('/:id', usersControllers.selectOne);
 
-// Get One Manga
-router.get("/:id", usersControllers.selectOne)
+// Get All Users
+router.get('/', usersControllers.selectAll);
 
-
-// Get All Mangas
- router.get("/", usersControllers.selectAll)
-
-// Update One Manga
+// Update One User
 // router.put("/:id",usersControllers)
 
-// Delete One Manga
-router.delete("/:id", usersControllers.deleteUser)
+// Delete One User
+router.delete('/:id', usersControllers.deleteUser);
 
 module.exports = router;

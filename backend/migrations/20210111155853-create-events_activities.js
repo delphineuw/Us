@@ -1,44 +1,34 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Events', {
+    await queryInterface.createTable('Events_Activities', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      host: {
+      activityId: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
           model: {
-            tableName: 'users'
+            tableName: 'activities'
           },
           key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      title: {
-        type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.STRING
-      },
-      location: {
-        type: Sequelize.STRING
-      },
-      start: {
-        type: Sequelize.DATE
-      },
-      end: {
-        type: Sequelize.DATE
-      },
-      isFinished: {
-        type: Sequelize.BOOLEAN
-      },
-      limited: {
-        type: Sequelize.BOOLEAN
+      eventId: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'events'
+          },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -51,6 +41,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Events');
+    await queryInterface.dropTable('Events_Activities');
   }
 };

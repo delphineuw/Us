@@ -12,7 +12,7 @@ const HobbieTemplate = ({firstName, lastName, imageUri, isCreator}) => {
   
   return (
     <View> 
-            <TouchableOpacity style={styles.participant}>
+            <View style={styles.participant}>
                 <View style={styles.alignParticipant}>
                     <Image style={styles.imageParticipant} source={imageUri}/>
                     <Text style={styles.textParticipant}> {firstName}{' '}{lastName} </Text> 
@@ -24,12 +24,13 @@ const HobbieTemplate = ({firstName, lastName, imageUri, isCreator}) => {
                                           checked={isPress ? true : false} 
                                           color="green"
                                           /> : null}
-
-                          <AntDesign name="right" size={30} color="black" />
+                          <TouchableOpacity>
+                            <AntDesign name="right" size={30} color="black" />
+                          </TouchableOpacity> 
                         </View>
                     </Right>
                 </View>
-            </TouchableOpacity>
+            </View>
     </View>
   );
 };
