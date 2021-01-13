@@ -6,6 +6,7 @@ import logo from '../../assets/logo.png';
 import styles from './styles';
 import ButtonFilter from '../../components/ButtonTemplate/ButtonFilter';
 import Form from '../../components/FormTemplate/index';
+import FabsTemplate from '../../components/FabsTemplate/index';
 
 
 
@@ -32,10 +33,10 @@ const editForm = [
  
 
 const SearchScreen = props => {
-  const [isSelected, setSelected] = useState("false");
+  // const [isSelected, setSelected] = useState("false");
   
 
-    const handlePress = () => {
+    const onLongPress= () => {
       Alert.alert('jai ete clicker')
       }
 
@@ -193,6 +194,10 @@ const SearchScreen = props => {
          })}
         </View>
          <Separator />
+
+
+
+          <FabsTemplate onLongPress={onLongPress} name={'pencil-circle-outline'}  color={"black"} />
 
           <Text style={styles.filtertext}>DATE</Text>
         <View style={styles.containerFilterDate}>

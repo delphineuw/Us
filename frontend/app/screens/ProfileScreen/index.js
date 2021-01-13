@@ -7,8 +7,8 @@ import UserTemplate from '../../components/UserTemplate/index'
 const profileScreen = () => {
     const [user, setUser] = useState([]);
     useEffect(() => {
-        const {id} = this.props.match.params
-         axios.get(`http://localhost:4000/api/users/${id}`)
+        // const {id} = this.props.match.params
+         axios.get(`http://localhost:4000/api/users/`)
             .then((res) => { 
                 setUser(res.data);
             }).catch((err) => {
@@ -30,8 +30,8 @@ const profileScreen = () => {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         {maping()}
 
-        <Button title="hobbies" onPress={() => props.navigation.navigate('EditHobbiesScreen')} />
-            <Button title="edit" onPress={() => props.navigation.navigate('EditProfileScreen')} />
+        <Button title="hobbies" onPress={() => {}} />
+            <Button title="edit" onPress={() => {}} />
         </View>
     )
 }
