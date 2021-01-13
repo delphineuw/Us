@@ -1,20 +1,19 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Event extends Model {
+  class User_Activity extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Event.hasMany(models.Participant, { foreignKey: 'eventId' });
-      Event.hasMany(models.Event_Activity, { foreignKey: 'eventId' });
+      // define association here
     }
   }
-  Event.init(
+  User_Activity.init(
     {
-      host: {
+      userId: {
         type: DataTypes.INTEGER,
         references: {
           model: {
@@ -25,18 +24,22 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      title: DataTypes.STRING,
-      description: DataTypes.STRING,
-      location: DataTypes.STRING,
-      start: DataTypes.DATE,
-      end: DataTypes.DATE,
-      isFinished: DataTypes.BOOLEAN,
-      limited: DataTypes.BOOLEAN
+      eventId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'event'
+          },
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      }
     },
     {
       sequelize,
-      modelName: 'Event'
+      modelName: 'User_Activity'
     }
   );
-  return Event;
+  return User_Activity;
 };
