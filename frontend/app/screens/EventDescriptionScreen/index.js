@@ -8,13 +8,14 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles';
 import ButtonFullRed from '../../components/ButtonTemplate/ButtonFullRed';
 import MiniMap from '../../components/MiniMap/index.js';
-import eventTest from '../../utils/eventTest.js';
-import hobbiesTest from '../../utils/hobbiesTest.js';
+// import eventTest from '../../utils/eventTest.js';
 import participantsTest from '../../utils/participantsTest.js';
 
 
 
-const EventDescriptionScreen = props => {
+const EventDescriptionScreen = ({ route }) => {
+
+  const {event} = route.params;
 
   const maping = () => {
     return participantsTest.map((item) => (
@@ -26,25 +27,25 @@ const EventDescriptionScreen = props => {
       <ScrollView showsHorizontalScrollIndicator={false}>
 
         <View>
-          <Image style={styles.head} source={hobbiesTest[1].imageUri} />
+          <Image style={styles.head} source={event.imageUri} />
         </View>
 
         <View style={styles.layer}>
 
           <View style={styles.viewTitle}>
             <Text style={styles.catTitle}>
-              {hobbiesTest[1].hobby} - {''}
+              {event.category} - {''}
             </Text>
             
             <Text style={styles.title}>
-              {eventTest[0].title}
+              {event.title}
             </Text>
           </View>
 
           <View style={styles.viewTitle}>
             <AntDesign name="clockcircleo" size={15} color="black" /> 
             <Text style={styles.timeAddess}>
-              {eventTest[0].time}
+              {event.time}
             </Text>
           </View>
 
@@ -54,7 +55,7 @@ const EventDescriptionScreen = props => {
           <View style={styles.addressStyle}>
               <FontAwesome name="map-marker" size={20} color="black" />
               <Text style={styles.timeAddess}>
-                {eventTest[0].address}
+                {event.address}
               </Text>
           </View>
         </View>
@@ -62,7 +63,7 @@ const EventDescriptionScreen = props => {
         <View style={styles.layer}>
           <Text style={styles.desc}>Description</Text>
           <Text style={styles.descText}>
-            {eventTest[0].description}
+            {event.description}
           </Text>
         </View>
 
@@ -92,7 +93,7 @@ const EventDescriptionScreen = props => {
           </View>
         </TouchableOpacity>
 
-        <MiniMap />
+        <MiniMap event={event} />
 
       </ScrollView>
 
