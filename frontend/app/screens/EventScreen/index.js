@@ -21,17 +21,26 @@ const EventScreen = props => {
   return (
     <ScrollView style={styles.container} showsHorizontalScrollIndicator={false}>
       <View style={styles.head}>
-        <Text style={styles.textHead} >
+        {/* <Text style={styles.textHead} >
            Deals of the week
-        </Text>
+        </Text> */}
+        <Image style={styles.imgHead} source={require('../../assets/friends.jpeg')}/>
         <Image style={styles.imgLogo} source={require('../../assets/logo.png')}/>
         <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-        <View style={styles.event}>
+        {/* <View style={styles.event}>
           {maping()}
-        </View>
+        </View> */}
        </ScrollView>
         
       </View>
+        <Text style={styles.textHead} >
+           Deals of the week
+        </Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+         <View style={styles.event}>
+          {maping()}
+        </View>
+        </ScrollView>
 
       <Text style={styles.text} >
           Events Today
@@ -63,9 +72,9 @@ const EventScreen = props => {
        {/* <FabsComponentTemplate /> */}
    
 
-      {/* <Button title="EDIT" onPress={() => props.navigation.navigate('EventEditScreen')} /> */}
-      <Button title="Description" onPress={() => props.navigation.navigate('EventDescriptionScreen' )} />
-      {/* <Button title="Participant" onPress={() => props.navigation.navigate('ParticipantScreen')} /> */}
+      <Button title="EDIT" onPress={() => props.navigation.navigate('EventEditScreen')} />
+      {/* <Button title="Description" onPress={() => props.navigation.navigate('EventDescriptionScreen' )} /> */}
+      <Button title="Participant" onPress={() => props.navigation.navigate('ParticipantScreen')} />
     </ScrollView>
   );
 };
