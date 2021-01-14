@@ -1,28 +1,37 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const routes = require('./routes')
+const AdminBro = require('admin-bro');
+const AdminBroExpress = require('@admin-bro/express');
+const AdminBroSequelize = require('@admin-bro/sequelize');
 
 // Local imports
+const db = require('./models');
 const sequelize = require('./utils/config');
-const usersRoute = require('./routes/users-route');
-const eventsRoute = require('./routes/events-route');
-const activitiesRoute = require('./routes/activities-route');
+const routes = require('./routes');
 
 // Express Config
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// Admin
+AdminBro.registerAdapter(AdminBroSequelize);
+const adminBro = new AdminBro({
+  databases: [db],
+  rootPath: '/admin'
+});
+const router = AdminBroExpress.buildRouter(adminBro);
+app.use(adminBro.options.rootPath, router);
+
 // Registered Routes
-app.use('/api', routes)
+app.use('/api', routes);
 
 // Error Handling Middleware
 app.use((error, req, res, next) => {
   console.log(error);
   res.json({ message: error.message || 'An unknown error occured.' });
 });
-
 
 // Server Start & Database connection
 sequelize
