@@ -7,7 +7,8 @@ import styles from './styles';
 // import FabsComponentTemplate from '../../components/FabsComponentTemplate';
 import EventsTemplate from '../../components/EventsTemplate/index.js';
 import eventTest from '../../utils/eventTest.js';
-// import hobbiesTest from '../../utils/hobbiesTest.js';
+import hobbiesTest from '../../utils/hobbiesTest.js';
+import FabsTemplate from '../../components/FabsTemplate/index.js';
 
 
 const EventScreen = props => {
