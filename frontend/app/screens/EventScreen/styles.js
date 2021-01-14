@@ -6,17 +6,48 @@ const styles = StyleSheet.create({
     },
     head: {
         display: 'flex',
-        flexDirection: 'row',
+        // flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 250,
-        backgroundColor: '#rgba(21,133,130, 0.8)'
+        height: 300,
+  
+        // backgroundColor: '#rgba(21,133,130, 0.8)'
+    },
+    textHead: {
+        display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center',
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+        fontSize: 35,
+        // marginTop: 35,
+        marginLeft: 15,
+        // marginBottom: 35,
+        color: 'black',
     },
     imgLogo: {
-        width: 150,
-        height: 150,
+        marginTop: 200,
+        width: 250,
+        height: 250,
         zIndex: -1,
-        position: 'absolute'
+        position: 'absolute',
+    },
+    imgHead: {
+        marginTop: 200,
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
+        position: 'absolute',
+    },
+    text: {
+        fontWeight: 'bold',
+        fontSize: 25,
+        marginTop: 5,
+        marginLeft: 15
+    },
+    event: {
+        display: 'flex',
+        flexDirection: 'row'
     }
 });
 
