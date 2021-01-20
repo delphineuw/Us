@@ -33,14 +33,20 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingTop: '20%'
+    paddingTop: '16%'
+  },
+  content: {
+   margin: 5,
+   alignItems: 'center',
   },
   gridHobby: {
     margin: 5
   },
   texthobby: {
     textAlign: 'center',
-    margin: 4
+    margin: 10,
+    fontFamily: 'Chilanka_400Regular',
+    fontSize: 18 
   },
   textcontent: {
     margin: 9

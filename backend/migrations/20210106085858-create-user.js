@@ -30,7 +30,17 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      country : {
+        type: Sequelize.STRING
+      },
+      city : {
+        type: Sequelize.STRING
+      },
+      preference: {
+        type: Sequelize.JSON
       }
+     
     });
   },
   down: async (queryInterface, Sequelize) => {

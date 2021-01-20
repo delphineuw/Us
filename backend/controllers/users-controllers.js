@@ -63,7 +63,7 @@ module.exports = {
   selectAll,
   selectOne,
   saveUser,
-  update
+  update,
 }
 
 

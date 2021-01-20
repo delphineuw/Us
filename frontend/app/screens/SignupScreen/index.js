@@ -1,11 +1,14 @@
+import axios from 'axios';
 import React from 'react';
 import { View, Image } from 'react-native';
+import axios from 'axios'
 
 // Local imports
 import logo from '../../assets/logo.png';
 import Form from '../../components/FormTemplate/index';
 import styles from './styles';
 
+// call api POST
 const signupForm = [
   {
     id: 1,
@@ -13,10 +16,10 @@ const signupForm = [
     placeholder: 'Write here...',
     label: 'Full Name',
     multiline: false,
-    type: 'name',
+    type: 'fullName',
     security: false,
     autoCapitalize: 'none',
-    value: ''
+    value: '',
   },
   {
     id: 2,
@@ -24,7 +27,7 @@ const signupForm = [
     placeholder: 'Write here...',
     label: 'Email',
     multiline: false,
-    type: 'emailAddress',
+    type: 'email',
     security: false,
     autoCapitalize: 'none',
     value: ''
@@ -45,23 +48,34 @@ const signupForm = [
     render: 'radio',
     label: 'Gender',
     options: ['Male', 'Female', 'Other'],
-    value: 'Other'
+    value: 'Other',
+    type: 'gender'
   },
   {
     id: 5,
     render: 'date',
     label: 'Date of birth',
-    value: new Date()
+    value: new Date(),
+    type: 'birthday'
   }
 ];
+const submitUser = (data) => {
+   console.log('I am in submitUser')
+   let body = {}
+   data.forEach(element => {
+     body[element.type] = element.value
+    });
+    console.log(body)
+    
+  }
 
 const SignupScreen = props => {
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
-      <Form inputs={signupForm} onSubmit={val => console.log(val)} />
+      <Form inputs={signupForm} onSubmit={submitUser} />
     </View>
   );
 };
-
+// 
 export default SignupScreen;

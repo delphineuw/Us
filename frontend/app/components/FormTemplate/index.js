@@ -46,6 +46,7 @@ const FormTemplate = props => {
             options={input.options}
             value={input.value}
             onChange={option => changeHandler(option, input)}
+            type={input.type}            
           />
         );
 
@@ -56,6 +57,7 @@ const FormTemplate = props => {
             label={input.label}
             value={input.value}
             onChange={date => changeHandler(date, input)}
+            type={input.type}
           />
         );
 

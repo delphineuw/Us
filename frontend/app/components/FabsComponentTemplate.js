@@ -1,7 +1,6 @@
 import React from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 //FABS  import and NAME
 //import { AntDesign } from '@expo/vector-icons'; for Fabs name="plus"
 // For fabs ">" use name= 'chevron-right-circle-outline'
