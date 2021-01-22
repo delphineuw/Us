@@ -6,6 +6,7 @@ import logo from '../../assets/logo.png';
 import styles from './styles';
 import ButtonFilter from '../../components/ButtonTemplate/ButtonFilter';
 import Form from '../../components/FormTemplate/index';
+import FabsTemplate from '../../components/FabsTemplate/index';
 
 
 
@@ -16,50 +17,27 @@ const Separator = () => (
 
 const editForm = [
   {
-    id: 4,
+    id: 1,
     render: 'date',
     label: 'Start Date',
     value: new Date()
   },
   {
-    id: 5,
+    id:2,
     render: 'date',
     label: 'End Date',
     value: new Date()
   }
 ];
 
-
-
-//     const UselessTextInput = () => {
-//     const [value, onChangeText] = React.useState('23/01/2021');
-
-//      return (
-//        <>
-//      <TextInput
-//       style={{ height: 40, borderColor: 'gray', borderWidth: 1, width:100, margin: 10, left: 150, justifyContent: "center"}}
-//       onChangeText={text => onChangeText(text)}
-//       value={value}
-//     />
-//      <TextInput
-//       style={{ height: 40, borderColor: 'gray', borderWidth: 1, width:100, margin: 10, right: 150, }}
-//       onChangeText={text => onChangeText(text)}
-//       value={value}
-//     />
-//     </>
-    
-//   );
-// }
  
 
 const SearchScreen = props => {
-  const [isSelected, setSelected] = useState("false");
+  // const [isSelected, setSelected] = useState("false");
   
 
-    const handlePress = () => {
-      // Alert.alert('jai ete clicker')
-      setSelected(!isSelected)
-      console.log(isSelected)
+    const onLongPress= () => {
+      Alert.alert('jai ete clicker')
       }
 
       
@@ -81,29 +59,64 @@ const SearchScreen = props => {
 
     const [selectedActivities, setSelectedActivities] = useState(activities);
     
-    // const newActivity = [{
-    //   name :  "HOTELS",
-    //   isSelected :false
-    // }]
-    
-    const selectActivity = ( activity) => {
+    const selectActivity = (activity ) => {
       console.log(activity)
+      // console.log(selectedActivities)
 
-      //  setSelectedActivities(activity)
-      //  setSelected(!isSelected)
-      //  console.log(isSelected)
-      }
+      const updatedSelectedActivities = selectedActivities.map(element => {
+        if(element.name == activity){
+          console.log('is match')
+        
+          return({ 
+            ...element, 
+            isSelected: !element.isSelected
+          })
+        } else {
+           return({...element})
+        }
+      });
+
+       console.log(updatedSelectedActivities)
+
+       setSelectedActivities(updatedSelectedActivities)
+    }
 
 
     const hostGenders = [{
       name: "FEMALE",
-      isSelected : true
+      isSelected : false
     },
     {
       name: "MALE",
       isSelected :false
     } 
   ];
+
+
+
+  const [selectedGenders, setSelectedGenders] = useState(hostGenders);
+    
+    const selectGender = (gender) => {
+      console.log(gender)
+      //  console.log(selectedGenders)
+
+      const updatedSelectedGenders = selectedGenders.map(element => {
+        if(element.name === gender){
+          console.log('is match')
+        
+           return({ 
+            ...element, 
+            isSelected: !element.isSelected
+          })
+        } else {
+           return({...element})
+        }
+       });
+
+         console.log(updatedSelectedGenders)
+
+        setSelectedGenders(updatedSelectedGenders)
+    }
 
 
     const keywords= [{
@@ -116,6 +129,34 @@ const SearchScreen = props => {
     }
    ]
 
+
+
+   const [selectedKeywords, setSelectedKeywords] = useState(keywords);
+    
+    const selectKeyword = (keyword) => {
+      console.log(keyword)
+      //  console.log(selectedGenders)
+
+      const updatedSelectedKeywords = selectedKeywords.map(element => {
+        if(element.name == keyword){
+          console.log('is match')
+        
+           return({ 
+            ...element, 
+            isSelected: !element.isSelected
+          })
+        } else {
+           return({...element})
+        }
+       });
+
+         console.log(updatedSelectedKeywords)
+
+        setSelectedKeywords(updatedSelectedKeywords)
+    }
+
+
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
@@ -126,9 +167,9 @@ const SearchScreen = props => {
 
         <View style= {styles.containerFilter}>
            {selectedActivities.map((activity) => {
-            console.log(activity)
+            // console.log(activity)
               return(      
-                 <ButtonFilter key={activity.name} text={activity.name} handlePress={selectActivity} />
+                 <ButtonFilter key={activity.name} text={activity.name} handlePress={selectActivity} isSelected={activity.isSelected}/>
            )
           })}
         </View>
@@ -136,9 +177,9 @@ const SearchScreen = props => {
 
         <Text style={styles.filtertext}>HOSTED BY</Text>
         <View style={styles.containerFilter}> 
-          {hostGenders.map(gender => {
+          {selectedGenders.map(gender => {
            return( 
-            <ButtonFilter key={gender.name} text={gender.name} handlePress={handlePress} isSelected={gender.isSelected} />
+            <ButtonFilter key={gender.name} text={gender.name} handlePress={selectGender} isSelected={gender.isSelected} />
           )
          })}
         </View> 
@@ -146,13 +187,17 @@ const SearchScreen = props => {
 
         <Text style={styles.filtertext}>KEYWORDS</Text>
         <View style={styles.containerFilter}> 
-          {keywords.map(keyword => {
+          {selectedKeywords.map(keyword => {
              return( 
-            <ButtonFilter key={keyword.name} text={keyword.name} handlePress={handlePress} isSelected={keyword.isSelected} />
+            <ButtonFilter key={keyword.name} text={keyword.name} handlePress={selectKeyword} isSelected={keyword.isSelected} />
           )
          })}
         </View>
          <Separator />
+
+
+
+          <FabsTemplate onLongPress={onLongPress} name={'pencil-circle-outline'}  color={"black"} />
 
           <Text style={styles.filtertext}>DATE</Text>
         <View style={styles.containerFilterDate}>

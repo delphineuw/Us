@@ -54,6 +54,16 @@ const editForm = [
   }
 ];
 
+// const submitEvent = (data) => {
+//   console.log('im submit')
+//   console.log(data)
+//   const body = {}
+//   data.forEach(item => {
+//     body[item.type] = item.value
+//   });
+//   console.log(body)
+// }
+
 const EventEditScreen = props => {
   return (
     <View style={styles.container}>
@@ -62,7 +72,7 @@ const EventEditScreen = props => {
           <Image style={styles.image} source={PLACEHOLDER} />
           <Button title="Upload" onPress={() => console.log('Click')} />
         </View>
-        <Form inputs={editForm} onSubmit={val => console.log(val)} />
+        <Form inputs={editForm} onSubmit={submitEvent} />
       </View>
     </View>
   );

@@ -24,11 +24,11 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      eventId: {
+      activityId: {
         type: DataTypes.INTEGER,
         references: {
           model: {
-            tableName: 'event'
+            tableName: 'activities'
           },
           key: 'id'
         },
