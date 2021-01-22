@@ -22,6 +22,7 @@ const DatePickerTemplate = props => {
         <DateTimePicker
           testID="dateTimePicker"
           value={props.value}
+          type={props.type}
           mode="date"
           is24Hour={true}
           display="default"

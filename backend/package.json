@@ -15,6 +15,7 @@
     "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "@admin-bro/express": "^3.1.0",
     "@admin-bro/sequelize": "^1.1.2",
     "admin-bro": "^3.3.1",

@@ -9,7 +9,6 @@ const HobbieTemplate = ({hobby, imageUri}) => {
 
   return (
     <View style={styles.container}> 
-
         <View >
             <TouchableOpacity style={styles.textHobbies} onPress={() => setIsPress (prevstate => !prevstate)}>
             <Image

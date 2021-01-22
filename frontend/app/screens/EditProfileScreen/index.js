@@ -45,6 +45,7 @@ const editForm = [
 ];
 
 const EditProfileScreen = props => {
+
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
