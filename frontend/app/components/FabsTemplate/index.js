@@ -1,33 +1,32 @@
 import React from 'react';
 import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
+
+//local import
 import styles from './styles'
-import { View } from 'native-base';
 
-//FABS  import and NAME
-//for PlusFabs use name="pluscircleo"
-// for PencilsFabs use name ='pencil-circle-outline'
 
-const FabsTemplate = ({onLongPress, color, height, name, size}) => {
+const FabsTemplate = ({handlePress, color, name}) => {
   
-  if ( name==='pencil-circle-outline'){
+  if ( name === 'pencil-circle-outline' ){
     return(
       <MaterialCommunityIcons style={styles.fabsPencil} 
-        onPress={onLongPress}
+        onPress={handlePress}
         name={name}  
         color={color}
+        size={80}
       />
       )
-  }else{
+  } else {
     return ( 
-      // name="pluscircleo"
       <AntDesign style={styles.fabsPlus} 
-        onPress={onLongPress}
+        onPress={handlePress}
         name={name}  
         color={color}
+        size={80}
       />
     )
-      }
-    }
+  }
+}
 
 
 export default FabsTemplate;

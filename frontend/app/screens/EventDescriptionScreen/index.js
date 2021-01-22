@@ -13,7 +13,7 @@ import participantsTest from '../../utils/participantsTest.js';
 
 
 
-const EventDescriptionScreen = ({ route }) => {
+const EventDescriptionScreen = ({ route, navigation }) => {
 
   const {event} = route.params;
 
@@ -69,24 +69,31 @@ const EventDescriptionScreen = ({ route }) => {
 
         <View style={styles.layerWhite}></View>
         
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ParticipantScreen')}>
           <View style={styles.layer}>
             <Text>
               Hosting by 
             </Text>
             <View> 
-              <Image style={styles.imgPart} source={participantsTest[0].imageUri} />
+              <Image 
+                style={styles.imgPart} 
+                source={participantsTest[0].imageUri} 
+              />
             </View>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ParticipantScreen')}>
           <View style={styles.layer}>
             <Text>
               People going
             </Text>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-              <View style={styles.imgFlex}> 
+            <ScrollView 
+              horizontal={true} 
+              showsHorizontalScrollIndicator={false}>
+              <View  
+                style={styles.imgFlex}
+              > 
                 {maping()}
               </View>
             </ScrollView>

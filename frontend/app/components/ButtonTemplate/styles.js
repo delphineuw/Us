@@ -27,12 +27,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'black',
         backgroundColor: '#F25C75',
-        width: 200,
+        width: 300,
         borderRadius: 100,
-        height: 30,
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        bottom: 45,
+        elevation: 5
+        // bottom: 45,
     },
     buttonEmptyRed: {
         marginTop: 25,

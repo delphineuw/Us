@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: 300,
-  
         // backgroundColor: '#rgba(21,133,130, 0.8)'
     },
     textHead: {
