@@ -14,6 +14,7 @@ const selectAll = async (req, res, next) => {
 
 const  saveUser =  async (req, res, next) => {
   const data = {...req.body}
+  console.log(data)
     const user = await User.create(data);
     try {
     await user.save();

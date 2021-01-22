@@ -8,7 +8,7 @@ const hobbiesTest = [
         key: 2,
         imageUri: {uri :'https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80'},
         hobby: 'Restaurant'
-    },
+    },  
     {
         key: 3,
         imageUri: {uri :'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1323&q=80'},

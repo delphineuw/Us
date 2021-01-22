@@ -1,7 +1,6 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { View, Image } from 'react-native';
-import axios from 'axios'
 
 // Local imports
 import logo from '../../assets/logo.png';
@@ -66,10 +65,17 @@ const submitUser = (data) => {
      body[element.type] = element.value
     });
     console.log(body)
-    
+    console.log("i am in submit ")
+    axios.post('http://localhost:4000/api/users/', body)
+      .then((res) => {
+          console.log(res.data)
+        }).catch((err) => {
+          console.log(err)
+        })
   }
 
 const SignupScreen = props => {
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
@@ -77,5 +83,6 @@ const SignupScreen = props => {
     </View>
   );
 };
-// 
 export default SignupScreen;
+
+
