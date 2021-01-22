@@ -6,8 +6,8 @@ const eventsRoute = require("./events-route")
 const activitiesRoute = require("./activities-route")
 
 router.use("/users", usersRoute )
-// router.use("/activities", activitiesRoute )
-// router.use("/events", eventsRoute )
+router.use("/activities", activitiesRoute )
+router.use("/events", eventsRoute )
 
 
 

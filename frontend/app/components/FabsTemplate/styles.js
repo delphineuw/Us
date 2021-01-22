@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   fabsPencil: {
     position: 'absolute',
-    margin: 25,
-    bottom: 0,
-    borderRadius:50,
-    right: 0,
-     fontSize: 50
-    },
-    fabsPlus: {
+    bottom: 10,
+    right: 10,
+    borderRadius: 100/2,
+    backgroundColor: 'white',
+    elevation: 30
+  },
+  fabsPlus: {
+    display: 'flex',
     position: 'absolute',
-    margin: 25,
-    bottom: 0,
-    borderRadius:50,
-    right: 0,
-    fontSize: 45,
-    }
+    bottom: 10,
+    right: 10,
+    borderRadius: 100/2,
+    backgroundColor: 'white',
+    elevation: 30,
+
+  }
 });
 
 export default styles;
