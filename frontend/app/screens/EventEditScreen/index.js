@@ -54,15 +54,23 @@ const editForm = [
   }
 ];
 
-const submitEvent = data => console.log('FORM, ', data);
-
 const EventEditScreen = props => {
+  const { hobby } = props.route.params;
+
+  const submitEvent = data => {
+    const output = [{ hobby: hobby.hobby, image: hobby.imageUri }];
+    for (const key in data) {
+      output.push({ field: data[key].label, value: data[key].value });
+    }
+    console.log(output);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={PLACEHOLDER} />
-          <Button title="Upload" onPress={() => console.log('Click')} />
+          <Image style={styles.image} source={hobby.imageUri || PLACEHOLDER} />
+          <Text>{hobby.hobby}</Text>
         </View>
         <Form inputs={editForm} onSubmit={submitEvent} />
       </View>
