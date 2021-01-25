@@ -24,7 +24,7 @@ const editForm = [
     placeholder: 'Write here...',
     label: 'Description',
     multiline: true,
-    type: 'emailAddress',
+    type: 'none',
     security: false,
     autoCapitalize: 'none',
     value: ''
@@ -35,7 +35,7 @@ const editForm = [
     placeholder: 'Write here...',
     label: 'Address',
     multiline: true,
-    type: 'emailAddress',
+    type: 'fullStreetAddress',
     security: false,
     autoCapitalize: 'none',
     value: ''
@@ -54,15 +54,7 @@ const editForm = [
   }
 ];
 
-// const submitEvent = (data) => {
-//   console.log('im submit')
-//   console.log(data)
-//   const body = {}
-//   data.forEach(item => {
-//     body[item.type] = item.value
-//   });
-//   console.log(body)
-// }
+const submitEvent = data => console.log('FORM, ', data);
 
 const EventEditScreen = props => {
   return (
