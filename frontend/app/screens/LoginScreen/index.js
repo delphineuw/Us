@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import axios from 'axios';
+
 
 // Local imports
 import logo from '../../assets/logo.png';
@@ -30,13 +32,26 @@ const loginForm = [
     value: ''
   }
 ];
+const login = (data) => {
+  let body = {}
+  data.forEach(element => {
+    body[element.type] = element.value
+  });
+  console.log(body)
+  axios.post('http://localhost:4000/api/users/login', body)
+    .then((res) => {
+        console.log(res.data)
+      }).catch((err) => {
+        console.log(err)
+      })
+}
 
 const LoginScreen = props => {
 
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
-      <Form inputs={loginForm} onSubmit={val => console.log(val)} />
+      <Form inputs={loginForm} onSubmit={login} />
     </View>
   );
 };
