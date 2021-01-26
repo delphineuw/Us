@@ -44,14 +44,7 @@ const profileScreen = (props) => {
             </View>
           </View>
           <View style={styles.hobbies} >
-            {user.preference.map(item => {
-              return (
-                <View style={styles.content}>
-                  <Image source={{uri: item.image}} style= {{ height: 100, width:100, borderRadius: 100}} />
-                  <Text style={styles.texthobby}> {item.name} </Text>
-                </View>
-              )
-            })}     
+          
           </View>
               <Button title="hobbies" onPress={() => props.navigation.navigate('EditHobbiesScreen')}/>
               <Button title="edit" onPress={() => props.navigation.navigate('EditProfileScreen')}/>
@@ -64,3 +57,11 @@ export default profileScreen
 
 
 
+// {user.preference.map(item => {
+//   return (
+//     <View style={styles.content}>
+//       <Image source={{uri: item.image}} style= {{ height: 100, width:100, borderRadius: 100}} />
+//       <Text style={styles.texthobby}> {item.name} </Text>
+//     </View>
+//   )
+// })}  
