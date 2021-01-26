@@ -45,7 +45,7 @@ const EventDescriptionScreen = ({ route, navigation }) => {
           <View style={styles.viewTitle}>
             <AntDesign name="clockcircleo" size={15} color="black" /> 
             <Text style={styles.timeAddess}>
-              {event.time}
+              {event.start}
             </Text>
           </View>
 
@@ -55,7 +55,7 @@ const EventDescriptionScreen = ({ route, navigation }) => {
           <View style={styles.addressStyle}>
               <FontAwesome name="map-marker" size={20} color="black" />
               <Text style={styles.timeAddess}>
-                {event.address}
+                {event.location}
               </Text>
           </View>
         </View>
@@ -100,7 +100,7 @@ const EventDescriptionScreen = ({ route, navigation }) => {
           </View>
         </TouchableOpacity>
 
-        <MiniMap event={event} />
+        {/* <MiniMap event={event} /> */}
 
       </ScrollView>
 

@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const eventsRoute = require('../controllers/events-controllers');
 
-// Post new User:
+// Post new Event:
 router.post('/', eventsRoute.saveEvent);
 
-// Get One User
+// Get One Event
 router.get('/:id', eventsRoute.selectOne);
 
-// Get All Users
+// Get All Events
 router.get('/', eventsRoute.selectAll);
 
-// Update One User
+// Update One Event
 router.put("/:id",eventsRoute.update)
 
-// Delete One User
+// Delete One Event
 router.delete('/:id', eventsRoute.deleteEvent);
 
 module.exports = router;

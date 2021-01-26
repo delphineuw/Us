@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, Text, Image, Button } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Text, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import Axios from 'axios';
 
 // local import
 import styles from './styles';
@@ -8,13 +9,36 @@ import EventsTemplate from '../../components/EventsTemplate/index.js';
 import eventTest from '../../utils/eventTest.js';
 import hobbiesTest from '../../utils/hobbiesTest.js';
 import FabsTemplate from '../../components/FabsTemplate/index.js';
+import ipAdd from '../../utils/ipAdd.js';
 
 
 const EventScreen = props => {
 
+  const [eventList, setEventList] = useState([]);
+
+  //  => In order to use the axios call in the useEffect method, create a file under the name ipAdd.js 
+  //  and create a 'const ipAdd = YOUR_IP_ADDRESS' or 'localHost' if you use iOS'in the utils folder and export it.
+
+  useEffect(() => {
+    Axios.get(`http://${ipAdd}:4000/api/events`)
+    .then((response) => {
+      setEventList(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+
   const maping = () => {
     return eventTest.map(event => 
               <EventsTemplate key={event.key} event={event} />
+    );
+  };
+
+  const mapingEventDB = () => {
+    return eventList.map(event => 
+              <EventsTemplate key={event.id} event={event} />
     );
   };
 
@@ -36,7 +60,8 @@ const EventScreen = props => {
         </Text>
         <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
          <View style={styles.event}>
-          {maping()}
+          {mapingEventDB()} 
+          {/* {maping()} */}
         </View>
         </ScrollView>
 

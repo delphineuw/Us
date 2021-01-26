@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     borderRadius: 100/2,
     backgroundColor: 'white',
     elevation: 30,
-
   }
 });
 

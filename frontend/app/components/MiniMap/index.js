@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import { View, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import axios from 'axios'
 
 // Local imports
 import styles from './styles';
 import eventTest from '../../utils/eventTest.js';
+import { TabRouter } from "@react-navigation/native";
 
+const API_KEY = 'AIzaSyDbPBhjyCIyVvmR4B-27U-e36dKJ-MxUMU';
 
+const getCoordsForAddress = ({event}) => {
+  
+  const response = axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(event.location)}&key=${API_KEY}`);
+  
+  const data = response.data;
+  
+  if ( !data || data.status === 'ZERO_RESULTS') {
+    const error = 'No address found';
+    throw error;
+  };
+  const coordinate = data.resutls[0].geometry.location;
+
+  return coordinate
+}
 
 const MiniMap = ({event}) => {
 

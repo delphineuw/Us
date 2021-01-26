@@ -27,7 +27,7 @@ const EventsTemplate = ({ event }) => {
           </View>
           <View style={styles.cardInfo}>
             <Text style={styles.cardTitle} numberOfLines={1}>{event.title}</Text>
-            <Text style={styles.cardDetails}>{event.date}{' '}{event.time}</Text>
+            <Text style={styles.cardDetails}>{event.start}{event.date}{' '}{event.time}</Text>
             <Text style={styles.cardDetails} numberOfLines={2}>
               {event.description}
             </Text>

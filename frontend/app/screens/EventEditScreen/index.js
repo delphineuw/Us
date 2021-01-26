@@ -54,15 +54,15 @@ const editForm = [
   }
 ];
 
-// const submitEvent = (data) => {
-//   console.log('im submit')
-//   console.log(data)
-//   const body = {}
-//   data.forEach(item => {
-//     body[item.type] = item.value
-//   });
-//   console.log(body)
-// }
+const submitEvent = (data) => {
+  console.log('im submit')
+  console.log(data)
+  const body = {}
+  data.forEach(item => {
+    body[item.type] = item.value
+  });
+  console.log(body)
+}
 
 const EventEditScreen = props => {
   return (

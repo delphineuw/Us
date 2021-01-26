@@ -43,7 +43,7 @@ const profileScreen = (props) => {
             <View style={styles.gridUser}>
             </View>
           </View>
-          <View style={styles.hobbies} >
+          {/* <View style={styles.hobbies} >
             {user.preference.map(item => {
               return (
                 <View style={styles.content}>
@@ -52,7 +52,7 @@ const profileScreen = (props) => {
                 </View>
               )
             })}     
-          </View>
+          </View> */}
               <Button title="hobbies" onPress={() => props.navigation.navigate('EditHobbiesScreen')}/>
               <Button title="edit" onPress={() => props.navigation.navigate('EditProfileScreen')}/>
         </View>
