@@ -5,18 +5,25 @@ import { View, Text, Alert } from 'react-native';
 import styles from './styles';
 import ButtonFullRed from '../../components/ButtonTemplate/ButtonFullRed/index.js';
 import ButtonFullGreen from '../../components/ButtonTemplate/ButtonFullGreen/index.js';
-import HobbieTemplate from '../../components/HobbieTemplate/index.js';
+import HobbieTemplate from '../../components/HobbieForm/index.js';
 import hobbiesTest from '../../utils/hobbiesTest.js';
 
 const HobbiesScreen = props => {
-  const [hobby, setHobby] = useState(null);
+  const [select, setSelect] = useState(null);
   const handlePress = () => {
     Alert.alert('Saved!');
   };
 
   const maping = () => {
     return hobbiesTest.map(item => (
-      <HobbieTemplate key={item.key} imageUri={item.imageUri} hobby={item.hobby} onSelect={item => setHobby(item)} />
+      <HobbieTemplate
+        key={item.key}
+        id={item.key}
+        imageUri={item.imageUri}
+        hobby={item.hobby}
+        selected={select}
+        onSelect={item => setSelect(item)}
+      />
     ));
   };
 
@@ -27,7 +34,16 @@ const HobbiesScreen = props => {
       <View style={styles.gridHobbies}>{maping()}</View>
 
       <View style={styles.btnContainer}>
-        <ButtonFullRed text={'Save'} handlePress={() => props.navigation.navigate('EventEditScreen', { hobby })} />
+        <ButtonFullRed
+          text={'Save'}
+          handlePress={() => {
+            if (select) {
+              props.navigation.navigate('EventEditScreen', {
+                hobby: hobbiesTest.filter(item => item.key === select)[0]
+              });
+            }
+          }}
+        />
       </View>
     </View>
   );
