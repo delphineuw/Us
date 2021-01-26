@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Alert } from 'react-native';
 
 // Local imports
@@ -8,32 +8,25 @@ import HobbieTemplate from '../../components/HobbieTemplate/index.js';
 import hobbiesTest from '../../utils/hobbiesTest.js';
 
 const HobbiesScreen = props => {
+  const handlePress = () => {
+    Alert.alert('Saved!');
+  };
 
-    const handlePress = () => {
-        Alert.alert('Saved!')
-    };
+  const maping = () => {
+    return hobbiesTest.map(item => <HobbieTemplate key={item.key} imageUri={item.imageUri} hobby={item.hobby} />);
+  };
 
-    const maping = () => {
-        return hobbiesTest.map((item) => (
-            <HobbieTemplate key={item.key} imageUri={item.imageUri} hobby={item.hobby} />
-       ))};
-    
   return (
-      
-    <View style={styles.container}> 
+    <View style={styles.container}>
+      <Text style={styles.head}>Pick your hobbies</Text>
 
         <Text style={styles.head}>
             Pick your activities
         </Text>
 
-        <View style={styles.gridHobbies}>
-           {maping()}
-        </View>
-
-        <View style={styles.btnContainer}>
-            <ButtonFullRed text={'save'} handlePress={handlePress} />
-        </View>
-        
+      <View style={styles.btnContainer}>
+        <ButtonFullRed text={'save'} handlePress={handlePress} />
+      </View>
     </View>
   );
 };

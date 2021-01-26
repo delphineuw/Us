@@ -10,17 +10,17 @@ const selectAll = async (req, res, next) => {
   }
 };
 
-const saveEvent =  async (req, res, next) => {
-  const data = {... req.body};
-    const event = await User.create(data);
-    try {
+const saveEvent = async (req, res, next) => {
+  const data = { ...req.body };
+  const event = await User.create(data);
+  try {
     await event.save();
   } catch (error) {
     console.log(error);
     return next(new Error('Could not save Event.'));
   }
   res.json({ event });
-}
+};
 
 const selectOne = async (req, res, next) => {
   const { id } = req.params;
@@ -36,13 +36,13 @@ const selectOne = async (req, res, next) => {
 const deleteEvent = async (req, res, next) => {
   const { id } = req.params;
   try {
-   const event = await Event.destroy({ where: { id } });
+    const event = await Event.destroy({ where: { id } });
     res.status(200).json(`Event ${id} was deleted !`);
   } catch (error) {
     let message = "Event can't delete";
     res.status(500).json(message);
   }
-}
+};
 
 const update = async (req, res, next) => {
   const data = { ...req.body };
@@ -62,5 +62,4 @@ module.exports = {
   selectOne,
   saveEvent,
   update
-}
-
+};

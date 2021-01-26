@@ -11,7 +11,6 @@ import hobbiesTest from '../../utils/hobbiesTest.js';
 import FabsTemplate from '../../components/FabsTemplate/index.js';
 import ipAdd from '../../utils/ipAdd.js';
 
-
 const EventScreen = props => {
 
   const [eventList, setEventList] = useState([]);
@@ -31,9 +30,7 @@ const EventScreen = props => {
 
 
   const maping = () => {
-    return eventTest.map(event => 
-              <EventsTemplate key={event.key} event={event} />
-    );
+    return eventTest.map(event => <EventsTemplate key={event.key} event={event} />);
   };
 
   const mapingEventDB = () => {
@@ -43,21 +40,15 @@ const EventScreen = props => {
   };
 
   return (
-    <View style={styles.container} >
-    <ScrollView style={styles.container} showsHorizontalScrollIndicator={false}>
-      <View style={styles.head}>
-        <Image style={styles.imgHead} source={require('../../assets/friends.jpeg')}/>
-        <Image style={styles.imgLogo} source={require('../../assets/logo.png')}/>
-        {/* <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-        <View style={styles.event}>
-          {maping()}
+    <View style={styles.container}>
+
+      <ScrollView style={styles.container} showsHorizontalScrollIndicator={false}>
+        <View style={styles.head}>
+          <Image style={styles.imgHead} source={require('../../assets/friends.jpeg')} />
+          <Image style={styles.imgLogo} source={require('../../assets/logo.png')} />
         </View>
-       </ScrollView> */}
-        
-      </View>
-        <Text style={styles.textHead} >
-           Deals of the week
-        </Text>
+
+        <Text style={styles.textHead} >Deals of the week</Text>
         <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
          <View style={styles.event}>
           {mapingEventDB()} 
@@ -65,40 +56,27 @@ const EventScreen = props => {
         </View>
         </ScrollView>
 
-      <Text style={styles.text} >
-          Events Today
-      </Text>
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-        <View style={styles.event}>
-          {maping()}
-        </View>
-       </ScrollView>
+        <Text style={styles.text}>Events Today</Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+          <View style={styles.event}>{maping()}</View>
+        </ScrollView>
 
-       <Text style={styles.text} >
-          All events
-      </Text>
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-        <View style={styles.event}>
-          {maping()}
-        </View>
-       </ScrollView>
+        <Text style={styles.text}>All events</Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+          <View style={styles.event}>{maping()}</View>
+        </ScrollView>
 
-      <Text style={styles.text} >
-          Your events
-      </Text>
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
-        <View style={styles.event}>
-          {maping()}
-        </View>
-       </ScrollView>
-    </ScrollView>
-        <FabsTemplate 
-          handlePress={() => props.navigation.navigate('EventEditScreen')} 
-          name={'pluscircle'}  
-          color={"#rgba(21,133,130, 1)"} 
-        />
+        <Text style={styles.text}>Your events</Text>
+        <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
+          <View style={styles.event}>{maping()}</View>
+        </ScrollView>
+      </ScrollView>
+      <FabsTemplate
+        handlePress={() => props.navigation.navigate('HobbiesScreen')}
+        name={'pluscircle'}
+        color={'#rgba(21,133,130, 1)'}
+      />
     </View>
-   
   );
 };
 

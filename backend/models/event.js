@@ -26,10 +26,11 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       },
       title: DataTypes.STRING,
+      category: DataTypes.STRING,
       description: DataTypes.STRING,
       location: DataTypes.STRING,
-      start: DataTypes.DATE,
-      end: DataTypes.DATE,
+      date: DataTypes.STRING,
+      time: DataTypes.STRING,
       isFinished: DataTypes.BOOLEAN,
       limited: DataTypes.BOOLEAN
     },

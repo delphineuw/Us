@@ -23,7 +23,7 @@ const DatePickerTemplate = props => {
           testID="dateTimePicker"
           value={props.value}
           type={props.type}
-          mode="date"
+          mode="datetime"
           is24Hour={true}
           display="default"
           onChange={onChange}
