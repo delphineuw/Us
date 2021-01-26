@@ -1,10 +1,11 @@
-import React, { useState, useEffect} from 'react'
-import {View, Text, Button, Image} from 'react-native'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, Image } from 'react-native';
+import axios from 'axios';
 import styles from './styles';
 import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
+
 import moment from 'moment'
 import FabsComponentTemplate from '../../components/FabsComponentTemplate'
 
@@ -61,5 +62,4 @@ const profileScreen = (props) => {
 export default profileScreen
 
 
-
-
+ 
