@@ -42,15 +42,25 @@ const editForm = [
   },
   {
     id: 4,
-    render: 'date',
+    render: 'text',
+    placeholder: 'Write here...',
     label: 'Start Date',
-    value: new Date()
+    multiline: false,
+    type: 'none',
+    security: false,
+    autoCapitalize: 'none',
+    value: ''
   },
   {
     id: 5,
-    render: 'date',
+    render: 'text',
+    placeholder: 'Write here...',
     label: 'End Date',
-    value: new Date()
+    multiline: false,
+    type: 'none',
+    security: false,
+    autoCapitalize: 'none',
+    value: ''
   }
 ];
 
