@@ -7,7 +7,9 @@ const activitiesRoute = require("./activities-route")
 
 router.use("/users", usersRoute )
 router.use("/activities", activitiesRoute )
-router.use("/events", authController.isAuthenticated, eventsRoute )
+router.use("/events",
+//  authController.isAuthenticated, 
+ eventsRoute )
 
 
 

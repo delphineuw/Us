@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { View, Text, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Axios from 'axios';
+import { useIsFocused } from '@react-navigation/native';
 
 // local import
 import styles from './styles';
@@ -14,6 +15,7 @@ import ipAdd from '../../utils/ipAdd.js';
 const EventScreen = props => {
 
   const [eventList, setEventList] = useState([]);
+  const isFocused = useIsFocused();
 
   //  => In order to use the axios call in the useEffect method, create a file under the name ipAdd.js 
   //  and create a 'const ipAdd = YOUR_IP_ADDRESS' or 'localHost' if you use iOS'in the utils folder and export it.
@@ -26,7 +28,9 @@ const EventScreen = props => {
     .catch((error) => {
       console.log(error)
     })
-  }, [])
+  }, [isFocused]);
+
+  
 
 
   const maping = () => {
@@ -36,7 +40,7 @@ const EventScreen = props => {
   const mapingEventDB = () => {
     return eventList.map(event => 
               <EventsTemplate key={event.id} event={event} />
-    );
+    ).reverse();
   };
 
   return (
@@ -52,7 +56,7 @@ const EventScreen = props => {
         <ScrollView showsHorizontalScrollIndicator={false} horizontal={true}>
          <View style={styles.event}>
           {mapingEventDB()} 
-          {/* {maping()} */}
+          {maping()}
         </View>
         </ScrollView>
 
