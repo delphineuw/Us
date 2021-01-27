@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const usersControllers = require('../controllers/users-controllers');
+const authController = require('../controllers/authentificate-controllers')
 
+router.post('/signup', authController.register)
+router.post('/login', authController.authentificate)
+  
+ 
 // Post new User:
 router.post('/', usersControllers.saveUser);
 
@@ -18,10 +23,6 @@ router.put("/:id",usersControllers.update)
 // Delete One User
 router.delete('/:id', usersControllers.deleteUser);
 
-// router.get('/login/:id', usersControllers.showLoginPage)
-// router.get('/singUp', usersControllers.showSingUpPage)
+
 
 module.exports = router;
-
-// api/users/login/
-// api/users/singup/

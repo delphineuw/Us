@@ -66,7 +66,7 @@ const submitUser = (data) => {
     });
     console.log(body)
     console.log("i am in submit ")
-    axios.post('http://localhost:4000/api/users/', body)
+    axios.post('http://localhost:4000/api/users/signup/', body)
       .then((res) => {
           console.log(res.data)
         }).catch((err) => {
