@@ -22,17 +22,20 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      category: {
+        type: Sequelize.STRING
+      },
       description: {
         type: Sequelize.STRING
       },
       location: {
         type: Sequelize.STRING
       },
-      start: {
-        type: Sequelize.DATE
+      date: {
+        type: Sequelize.STRING
       },
-      end: {
-        type: Sequelize.DATE
+      time: {
+        type: Sequelize.STRING
       },
       isFinished: {
         type: Sequelize.BOOLEAN

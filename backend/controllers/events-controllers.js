@@ -12,7 +12,7 @@ const selectAll = async (req, res, next) => {
 
 const saveEvent = async (req, res, next) => {
   const data = { ...req.body };
-  const event = await User.create(data);
+  const event = await Event.create(data);
   try {
     await event.save();
   } catch (error) {

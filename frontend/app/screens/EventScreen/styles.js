@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         marginTop: 5,
-        marginLeft: 15
+        marginLeft: 15,
+        color: 'black'
     },
     event: {
         display: 'flex',

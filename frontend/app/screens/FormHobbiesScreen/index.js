@@ -29,7 +29,7 @@ const HobbiesScreen = props => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.head}>Pick your hobbies</Text>
+      <Text style={styles.head}>Pick your activities</Text>
 
       <View style={styles.gridHobbies}>{maping()}</View>
 

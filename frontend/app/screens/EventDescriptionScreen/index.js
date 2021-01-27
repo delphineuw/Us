@@ -8,7 +8,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles';
 import ButtonFullRed from '../../components/ButtonTemplate/ButtonFullRed';
 import MiniMap from '../../components/MiniMap/index.js';
-// import eventTest from '../../utils/eventTest.js';
+import eventTest from '../../utils/eventTest.js';
 import participantsTest from '../../utils/participantsTest.js';
 
 
@@ -22,12 +22,38 @@ const EventDescriptionScreen = ({ route, navigation }) => {
         <Image key={item.key} source={item.imageUri} style={styles.imgPart}/>
    ))};
 
+   const imgSwitch = () => {
+    switch (event.category) {
+      case 'Sport':
+        return (<Image style={styles.head} source={eventTest[0].imageUri} />)
+      case 'Restaurant':
+        return (<Image style={styles.head} source={eventTest[1].imageUri} />)
+      case 'Travel':
+        return (<Image style={styles.head} source={eventTest[2].imageUri} />)
+      case 'Bar':
+        return (<Image style={styles.head} source={eventTest[3].imageUri} />)
+      case 'Art':
+        return (<Image style={styles.head} source={eventTest[4].imageUri} />)
+      case 'Car':
+        return (<Image style={styles.head} source={eventTest[5].imageUri} />)
+      case 'Cinema':
+        return (<Image style={styles.head} source={eventTest[6].imageUri} />)
+      case 'Party':
+        return (<Image style={styles.head} source={eventTest[7].imageUri} />)
+      case 'Game':
+        return (<Image style={styles.head} source={eventTest[8].imageUri} />)
+      default:
+        return (<FontAwesome name="picture-o" size={300} color="black" />)
+    }
+   }
+
   return (
     <View style={styles.container}> 
       <ScrollView showsHorizontalScrollIndicator={false}>
 
         <View>
-          <Image style={styles.head} source={event.imageUri} />
+          {/* <Image style={styles.head} source={event.imageUri} /> */}
+          {imgSwitch()}
         </View>
 
         <View style={styles.layer}>
@@ -55,7 +81,7 @@ const EventDescriptionScreen = ({ route, navigation }) => {
           <View style={styles.addressStyle}>
               <FontAwesome name="map-marker" size={20} color="black" />
               <Text style={styles.timeAddess}>
-                {event.address}
+                {event.location}
               </Text>
           </View>
         </View>
@@ -100,7 +126,7 @@ const EventDescriptionScreen = ({ route, navigation }) => {
           </View>
         </TouchableOpacity>
 
-        <MiniMap event={event} />
+        {/* <MiniMap event={event} /> */}
 
       </ScrollView>
 
