@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image } from 'react-native';
 
 // Local imports
@@ -15,10 +15,10 @@ const signupForm = [
     placeholder: 'Write here...',
     label: 'Full Name',
     multiline: false,
-    type: 'fullName',
+    type: 'name',
     security: false,
     autoCapitalize: 'none',
-    value: '',
+    value: ''
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const signupForm = [
     placeholder: 'Write here...',
     label: 'Email',
     multiline: false,
-    type: 'email',
+    type: 'emailAddress',
     security: false,
     autoCapitalize: 'none',
     value: ''
@@ -55,27 +55,19 @@ const signupForm = [
     render: 'date',
     label: 'Date of birth',
     value: new Date(),
-    type: 'birthday'
+    type: 'none'
   }
 ];
-const submitUser = (data) => {
-   console.log('I am in submitUser')
-   let body = {}
-   data.forEach(element => {
-     body[element.type] = element.value
-    });
-    console.log(body)
-    console.log("i am in submit ")
-    axios.post('http://localhost:4000/api/users/signup/', body)
-      .then((res) => {
-          console.log(res.data)
-        }).catch((err) => {
-          console.log(err)
-        })
-  }
+const submitUser = data => {
+  const fullName = data.filter(item => item.label === 'Full Name')[0].value;
+  const email = data.filter(item => item.label === 'Email')[0].value;
+  const password = data.filter(item => item.label === 'Password')[0].value;
+  const gender = data.filter(item => item.label === 'Gender')[0].value;
+  const birthdate = data.filter(item => item.label === 'Date of birth')[0].value;
+  console.log({ fullName, email, password, gender, birthdate });
+};
 
 const SignupScreen = props => {
-
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
@@ -84,5 +76,3 @@ const SignupScreen = props => {
   );
 };
 export default SignupScreen;
-
-
