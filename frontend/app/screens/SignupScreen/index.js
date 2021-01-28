@@ -84,10 +84,11 @@ const SignupScreen = props => {
       dispatch({
         type: 'LOGIN',
         payload: {
-          fullname: response.data.user.fullName,
+          fullName: response.data.user.fullName,
           gender: response.data.user.gender,
           image: response.data.user.image,
-          id: response.data.user.id
+          id: response.data.user.id,
+          birthdate: response.data.user.birthdate
         }
       });
     }

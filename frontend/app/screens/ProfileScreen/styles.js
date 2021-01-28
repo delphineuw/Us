@@ -1,13 +1,18 @@
 import { StyleSheet } from 'react-native';
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1, justifyContent: 'center', alignItems: 'center'
-    },
-    image: {
-        width: 150, height: 150, borderRadius: 100
-    },
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    overflow: 'hidden'
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -43,8 +48,8 @@ const styles = StyleSheet.create({
     paddingTop: '16%'
   },
   content: {
-   margin: 5,
-   alignItems: 'center',
+    margin: 5,
+    alignItems: 'center'
   },
   gridHobby: {
     margin: 5
@@ -53,7 +58,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     fontFamily: 'Chilanka_400Regular',
-    fontSize: 18 
+    fontSize: 18
   },
   textcontent: {
     margin: 9
