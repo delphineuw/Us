@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { View, Image } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 // Local imports
 import logo from '../../assets/logo.png';
@@ -59,28 +60,39 @@ const signupForm = [
     type: 'none'
   }
 ];
-const submitUser = async data => {
-  const fullName = data.filter(item => item.label === 'Full Name')[0].value;
-  const email = data.filter(item => item.label === 'Email')[0].value;
-  const password = data.filter(item => item.label === 'Password')[0].value;
-  const gender = data.filter(item => item.label === 'Gender')[0].value;
-  const birthdate = data.filter(item => item.label === 'Date of birth')[0].value;
-
-  let response;
-  try {
-    response = await axios.post(API + '/api/users/signup', { fullName, email, password, gender, birthdate });
-  } catch (error) {
-    console.log('An error occured: ', error);
-  }
-
-  if (!response) return;
-  if (response.data.access) {
-    console.log('Access granted!');
-    console.log('Response: ', response.data.user);
-  }
-};
 
 const SignupScreen = props => {
+  const dispatch = useDispatch();
+
+  const submitUser = async data => {
+    const fullName = data.filter(item => item.label === 'Full Name')[0].value;
+    const email = data.filter(item => item.label === 'Email')[0].value;
+    const password = data.filter(item => item.label === 'Password')[0].value;
+    const gender = data.filter(item => item.label === 'Gender')[0].value;
+    const birthdate = data.filter(item => item.label === 'Date of birth')[0].value;
+
+    let response;
+    try {
+      response = await axios.post(API + '/api/users/signup', { fullName, email, password, gender, birthdate });
+    } catch (error) {
+      console.log('An error occured: ', error);
+    }
+
+    if (!response) return;
+    if (response.data.access) {
+      console.log('Access granted!');
+      dispatch({
+        type: 'LOGIN',
+        payload: {
+          fullname: response.data.user.fullName,
+          gender: response.data.user.gender,
+          image: response.data.user.image,
+          id: response.data.user.id
+        }
+      });
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
