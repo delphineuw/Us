@@ -5,6 +5,7 @@ import { View, Image } from 'react-native';
 // Local imports
 import logo from '../../assets/logo.png';
 import Form from '../../components/FormTemplate/index';
+import API from '../../utils/ipAdd';
 import styles from './styles';
 
 // call api POST
@@ -58,13 +59,25 @@ const signupForm = [
     type: 'none'
   }
 ];
-const submitUser = data => {
+const submitUser = async data => {
   const fullName = data.filter(item => item.label === 'Full Name')[0].value;
   const email = data.filter(item => item.label === 'Email')[0].value;
   const password = data.filter(item => item.label === 'Password')[0].value;
   const gender = data.filter(item => item.label === 'Gender')[0].value;
   const birthdate = data.filter(item => item.label === 'Date of birth')[0].value;
-  console.log({ fullName, email, password, gender, birthdate });
+
+  let response;
+  try {
+    response = await axios.post(API + '/api/users/signup', { fullName, email, password, gender, birthdate });
+  } catch (error) {
+    console.log('An error occured: ', error);
+  }
+
+  if (!response) return;
+  if (response.data.access) {
+    console.log('Access granted!');
+    console.log('Response: ', response.data.user);
+  }
 };
 
 const SignupScreen = props => {
