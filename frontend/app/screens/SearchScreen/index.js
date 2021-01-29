@@ -43,15 +43,15 @@ const SearchScreen = props => {
       
 
     const activities = [{ 
-      name : "RESTAURANT", 
+      name : "Restaurant", 
       isSelected: false
     },
     {
-      name : "BAR",
+      name : "Bar",
        isSelected: false
     },
     {
-      name : "AFTER WORKS",
+      name : "Afterwork",
        isSelected: false
     } 
     ];
@@ -83,11 +83,11 @@ const SearchScreen = props => {
 
 
     const hostGenders = [{
-      name: "FEMALE",
+      name: "Female",
       isSelected : false
     },
     {
-      name: "MALE",
+      name: "Male",
       isSelected :false
     } 
   ];
@@ -120,11 +120,11 @@ const SearchScreen = props => {
 
 
     const keywords= [{
-      name: "BRUXELLES",
+      name: "Bruxelles",
       isSelected: false
     },
     {
-      name: "MUSEUM",
+      name: "Museum",
       isSelected: false
     }
    ]

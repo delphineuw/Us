@@ -1,10 +1,12 @@
+import hobbiesTest from './hobbiesTest.js';
+
 const eventTest = [
     {
         key: 1,
-        category: 'Sport',
-        imageUri: {uri : 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'},
+        category: 'Running',
+        imageUri: hobbiesTest[3].imageUri,
         title: `Let's workout ! `,
-        description: 'Freeletics is a new way to train, when and where you want it, without material. No constraint, no excuse! The exercises are selected from an app which is already gathering more than 40 million users worldwide. Track your progress and watch explanatory videos to execute very diverse exercises correctly! ',
+        description: 'Running is a new way to train, when and where you want it, without material. No constraint, no excuse! The exercises are selected from an app which is already gathering more than 40 million users worldwide. Track your progress and watch explanatory videos to execute very diverse exercises correctly! ',
         date: '10/02/2021',
         time: '10:00 - 21:00',
         location: 'Rue du Bourdon 100, 1180 Bruxelles',
@@ -13,7 +15,7 @@ const eventTest = [
     {
         key: 2,
         category: 'Restaurant',
-        imageUri: {uri :'https://images.unsplash.com/photo-1540420828642-fca2c5c18abe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80'},
+        imageUri: hobbiesTest[0].imageUri,
         title: 'Burgers for everyone ! ',
         description: 'Hey guys, I am organizing a dinner for every burger lover outhere ! So if you want to meet other expat while eating big bugers, feel free to join! ',
         date: '21/02/2021',
@@ -23,8 +25,8 @@ const eventTest = [
     },
     {
         key: 3,
-        category: 'Travel',
-        imageUri: {uri :'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1323&q=80'},
+        category: 'Sightseeing',
+        imageUri: hobbiesTest[10].imageUri,
         title: 'Brussels by Water ! ',
         description: `This week will be Playa Resorts for Families. Join us along with your children for a fun night of Family Travel to the Caribbean. Michelle with Playa Resorts will take us on a tour of 11 resorts that are family friendly. After registering for this FREE event, you will receive a confirmation email containing information about joining the webinar. Join us from the comforts of your own home to experience where a family can go when it is safe again! `,
         date: '01/03/2021',
@@ -35,8 +37,8 @@ const eventTest = [
     {
         key: 4,
         category: 'Bar',
-        imageUri: {uri :'https://images.unsplash.com/photo-1539639885136-56332d18071d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'},
-        title: 'After word drink meet up at Café Belga',
+        imageUri: hobbiesTest[5].imageUri,
+        title: 'After word drink at Café Belga',
         description: 'Hello workers, For this special occasion we’re inviting some of the best residents from the golden era of Belgian clubbing. To top things off Mr. Plastic Dreams, Robin “Jaydee” Albers makes his long anticipated return and we welcome the legendary Jam El Mar (Jam & Spoon) as our international guests. ',
         date: '30/04/2021',
         time: 'Today 16:00 - 22:00',
@@ -45,8 +47,8 @@ const eventTest = [
     },
     {
         key: 5,
-        category: 'Art',
-        imageUri: {uri :'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'},
+        category: 'Coworking',
+        imageUri: hobbiesTest[9].imageUri,
         title: 'Mima museum',
         description: `Hey guys, Let's go and visit the brand-new Millennium Iconoclast Museum of Art in Brussels, which is finally opening its doors`,
         date: '04/02/2021',
@@ -56,9 +58,9 @@ const eventTest = [
     },
     {
         key: 6,
-        category: 'Car',
-        imageUri: {uri :'https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'},
-        title: `Auto show (Salon automobile)`,
+        category: 'Cycling',
+        imageUri: hobbiesTest[4].imageUri,
+        title: `Roll out`,
         description: 'I am organizing a group for the car lover to go to the auto show.',
         date: '15/03/2021',
         time: '10:00 - 15:00',
@@ -68,7 +70,7 @@ const eventTest = [
     {
         key: 7,
         category: 'Cinema',
-        imageUri: {uri :'https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1778&q=80'},
+        imageUri: hobbiesTest[8].imageUri,
         title: 'Star wars is in theater ! ',
         description: `For all the Star Wars fans, let's go see the last movie`,
         date: '21/02/2021',
@@ -78,8 +80,8 @@ const eventTest = [
     },
     {
         key: 8,
-        category: 'Party',
-        imageUri: {uri :'https://images.unsplash.com/photo-1496337589254-7e19d01cec44?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'},
+        category: 'Afterwork',
+        imageUri: hobbiesTest[2].imageUri,
         title: 'C12 x Queer Future Club',
         description: 'C12 is inviting Queer Future Club & Full Scale for an open on the Place d’Espagne organized in collaboration with PikNik Ethik Télévie. All the income will go Televie 2020 and to the artists. See you there for a sunny Sunday afternoon dance session with Fais Le Beau, Sixsixsixties, Azo Kal & Adema.',
         date: '29/02/2021',
@@ -89,10 +91,10 @@ const eventTest = [
     },
     {
         key: 9,
-        category: 'Game',
-        imageUri:{uri : 'https://images.unsplash.com/photo-1605899435973-ca2d1a8861cf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80'},
+        category: 'Climbing',
+        imageUri: hobbiesTest[11].imageUri,
         title: 'Wow session at my place ',
-        description: 'Hey guys, video game night',
+        description: 'Hey guys, Climbing game night',
         date: '30/02/2021',
         time: '18:00 - 20:00',
         location: 'Rue du Congrès 42, 1000 Bruxelles',

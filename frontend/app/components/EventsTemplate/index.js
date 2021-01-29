@@ -18,24 +18,30 @@ const EventsTemplate = ({ event }) => {
 
   const imgSwitch = () => {
     switch (event.category) {
-      case 'Sport':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[0].imageUri} />)
       case 'Restaurant':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[1].imageUri} />)
-      case 'Travel':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[2].imageUri} />)
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[0].imageUri} />)
+      case 'Tennis':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[1].imageUri} />)
+      case 'Afterwork':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[2].imageUri} />)
+      case 'Running':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[3].imageUri} />)
+      case 'Cycling':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[4].imageUri} />)
       case 'Bar':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[3].imageUri} />)
-      case 'Art':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[4].imageUri} />)
-      case 'Car':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[5].imageUri} />)
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[5].imageUri} />)
+      case 'Squash':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[6].imageUri} />)
+      case 'Badminton':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[7].imageUri} />)
       case 'Cinema':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[6].imageUri} />)
-      case 'Party':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[7].imageUri} />)
-      case 'Game':
-        return (<Image style={styles.cardImg} resizeMode="cover" source={eventTest[8].imageUri} />)
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[8].imageUri} />)
+      case 'Coworking':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[9].imageUri} />)
+      case 'Sightseeing':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[10].imageUri} />)
+      case 'Climbing':
+        return (<Image style={styles.cardImg} resizeMode="cover" source={hobbiesTest[11].imageUri} />)
       default:
         return (<FontAwesome name="picture-o" size={34} color="black" />)
     }

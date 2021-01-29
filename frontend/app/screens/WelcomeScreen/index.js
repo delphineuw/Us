@@ -16,7 +16,7 @@ const WelcomeScreen = props => {
       <CustomButton text="Login" handlePress={() => props.navigation.navigate('LoginScreen')} />
       <CustomButton text="Signup" handlePress={() => props.navigation.navigate('SignupScreen')} />
       <TouchableOpacity onPress={() => dispatch({ type: 'LOGIN' })}>
-        <Text style={styles.guest}>Continue as guest.</Text>
+        <Text style={styles.guest}>Continue as guest</Text>
       </TouchableOpacity>
     </View>
   );

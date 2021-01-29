@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 // Local imports
 import styles from './styles';
 
-const HobbieTemplate = ({ hobby, imageUri }) => {
+const HobbieTemplate = ({ category, imageUri }) => {
   const [isPress, setIsPress] = React.useState(false);
 
   return (
@@ -12,7 +12,7 @@ const HobbieTemplate = ({ hobby, imageUri }) => {
       <View>
         <TouchableOpacity style={styles.textHobbies} onPress={() => setIsPress(prevstate => !prevstate)}>
           <Image style={isPress ? styles.pickedHobbies : styles.imageHobbies} source={imageUri} />
-          <Text> {hobby} </Text>
+          <Text> {category} </Text>
         </TouchableOpacity>
       </View>
     </View>
