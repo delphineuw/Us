@@ -20,7 +20,7 @@ const HobbiesScreen = props => {
         key={item.key}
         id={item.key}
         imageUri={item.imageUri}
-        hobby={item.hobby}
+        category={item.category}
         selected={select}
         onSelect={item => setSelect(item)}
       />
@@ -39,7 +39,7 @@ const HobbiesScreen = props => {
           handlePress={() => {
             if (select) {
               props.navigation.navigate('EventEditScreen', {
-                hobby: hobbiesTest.filter(item => item.key === select)[0]
+                categories: hobbiesTest.filter(item => item.key === select)[0]
               });
             }
           }}

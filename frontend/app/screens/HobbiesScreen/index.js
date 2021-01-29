@@ -13,17 +13,12 @@ const HobbiesScreen = props => {
   };
 
   const maping = () => {
-    return hobbiesTest.map(item => <HobbieTemplate key={item.key} imageUri={item.imageUri} hobby={item.hobby} />);
+    return hobbiesTest.map(item => <HobbieTemplate key={item.key} imageUri={item.imageUri} category={item.category} />);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.head}>Pick your hobbies</Text>
-
-        <Text style={styles.head}>
-            Pick your activities
-        </Text>
-
+      <Text style={styles.head}>Pick your activities</Text>
       <View style={styles.btnContainer}>
         <ButtonFullRed text={'save'} handlePress={handlePress} />
       </View>

@@ -1,44 +1,36 @@
 import React, { useState } from "react";
 import { View, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import axios from 'axios'
+import { TabRouter } from "@react-navigation/native";
+import axios from 'axios';
 
 // Local imports
 import styles from './styles';
 import eventTest from '../../utils/eventTest.js';
-import { TabRouter } from "@react-navigation/native";
-
 
 
 const MiniMap = ({event}) => {
 
   const API_KEY = 'AIzaSyDbPBhjyCIyVvmR4B-27U-e36dKJ-MxUMU';
 
-  const getCoordsForAddress = async () => {
-    try {
-      const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(event.location)}&key=${API_KEY}`);
- 
+  const getCoordsForAddress = async ({event}) => {
+    console.log('Im here')
+    
+      const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(event.location)}&key=${API_KEY}`)
+    
       const data = response.data ;
-      console.log(data)
 
 
       if ( !data || data.status === 'ZERO_RESULTS') {
-        const error = 'No address found';
-        throw new Error(error.toString());
-      };
-      if ( !data || data.error_message) {
-        const error = 'No address found XX';
-        throw new Error(data.error_message);
+        const error = new Errors('No address found', 422);
+        throw error
       };
 
-      const coordinate = data.results[0].geometry.location;
+      const coordinates = data.results[0].geometry.location;
       console.log(coordinate)
   
-      return coordinate
+      return coordinates
 
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   const { width, height } = Dimensions.get('window');
@@ -70,7 +62,7 @@ const MiniMap = ({event}) => {
           {/* <Marker 
               coordinate={coordinate}
               title={event.title}
-              description={event.address} 
+              description={event.location} 
           /> */}
         </MapView>
       </View>

@@ -1,3 +1,3 @@
-const ipAdd = '192.168.50.195'
+const ipAdd = '192.168.0.110'
 
 export default ipAdd;

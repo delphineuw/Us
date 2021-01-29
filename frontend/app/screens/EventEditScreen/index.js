@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { View, Text, Image } from 'react-native';
 import axios from 'axios';
 
@@ -67,27 +67,27 @@ const editForm = [
 ];
 
 const EventEditScreen = props => {
-  const { hobby } = props.route.params;
+  const { categories } = props.route.params;
 
   const submitEvent = data => {
-    
-    const output = [{ category: hobby.hobby, image: hobby.imageUri }];
+
+    const output = [{ category: categories.category, image: categories.imageUri }];
     for (const key in data) {
       output.push({ field: data[key].label, value: data[key].value });
     }
 
     const title = output.filter(item => item.field === 'Title')[0].value
-    console.log(title);
+    // console.log(title);
     const category = output.filter(item => item.category)[0].category
-    console.log(category);
+    // console.log(category);
     const description = output.filter(item => item.field === 'Description')[0].value
-    console.log(description);
+    // console.log(description);
     const location = output.filter(item => item.field === 'Address')[0].value
-    console.log(location);
+    // console.log(location);
     const date = output.filter(item => item.field === 'Date')[0].value
-    console.log(date);
+    // console.log(date);
     const time = output.filter(item => item.field === 'Time')[0].value
-    console.log(time);
+    // console.log(time);
 
     axios.post(`http://${ipAdd}:4000/api/events`, {title, category, description, location, date, time})
       .then((response) => {
@@ -105,8 +105,8 @@ const EventEditScreen = props => {
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={hobby.imageUri || PLACEHOLDER} />
-          <Text>{hobby.hobby}</Text>
+          <Image style={styles.image} source={categories.imageUri || PLACEHOLDER} />
+          <Text>{categories.category}</Text>
         </View>
         <Form inputs={editForm} onSubmit={submitEvent} />
       </View>
