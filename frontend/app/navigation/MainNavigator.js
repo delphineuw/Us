@@ -5,6 +5,7 @@ import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-ico
 // Local imports
 import ProfileNavigator from './ProfileNavigator';
 import EventNavigator from './EventNavigator';
+import SearchNavigator from './SearchNavigator';
 import SearchScreen from '../screens/SearchScreen/index';
 
 // Main navigation (Bottom Tab)

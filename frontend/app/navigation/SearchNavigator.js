@@ -12,19 +12,15 @@ import SearchScreen from '../screens/SearchScreen';
 
 // Scan Navigation (Stack)
 const Stack = createStackNavigator();
-const ProfileNavigator = (props) => {
+const SearchNavigator = () => {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="EventScreen" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="EventScreen" component={EventScreen} />
-        <Stack.Screen name="EventEditScreen" component={EventEditScreen} />
-        <Stack.Screen name="HobbiesScreen" component={HobbiesScreen} />
+      <Stack.Navigator initialRouteName="SearchScreen" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="EventDescriptionScreen" component={EventDescriptionScreen} />
         <Stack.Screen name="ParticipantScreen" component={ParticipantScreen} />
-        <Stack.Screen name="SearchScreen" component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default ProfileNavigator;
+export default SearchNavigator;
