@@ -6,7 +6,6 @@ import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-ico
 import ProfileNavigator from './ProfileNavigator';
 import EventNavigator from './EventNavigator';
 import SearchNavigator from './SearchNavigator';
-import SearchScreen from '../screens/SearchScreen/index';
 
 // Main navigation (Bottom Tab)
 const Tab = createBottomTabNavigator();
@@ -29,7 +28,7 @@ const MainNavigator = () => {
       />
       <Tab.Screen
         name="Search"
-        component={SearchScreen}
+        component={SearchNavigator}
         options={{
           tabBarIcon: ({ size, color }) => <AntDesign name="search1" size={size} color={color} />
         }}
