@@ -1,214 +1,102 @@
-import React, {useState} from 'react';
-import { View, Image, Text, Alert, TextInput } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Image, Text, TextInput, FlatList } from 'react-native';
+import Axios from 'axios';
+import filter from 'lodash.filter';
+import { useIsFocused } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 // Local imports
 import logo from '../../assets/logo.png';
 import styles from './styles';
-import ButtonFilter from '../../components/ButtonTemplate/ButtonFilter';
-import Form from '../../components/FormTemplate/index';
-import FabsTemplate from '../../components/FabsTemplate/index';
+import EventsTemplate from '../../components/EventsTemplate/index.js';
+import ipAdd from '../../utils/ipAdd.js';
 
+const SearchScreen = () => {
 
+  const navigation = useNavigation(); 
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
-
-
-const editForm = [
-  {
-    id: 1,
-    render: 'date',
-    label: 'Start Date',
-    value: new Date()
-  },
-  {
-    id:2,
-    render: 'date',
-    label: 'End Date',
-    value: new Date()
-  }
-];
-
- 
-
-const SearchScreen = props => {
-  // const [isSelected, setSelected] = useState("false");
+  const [query, setQuery] = useState('');
+  const [fullData, setFullData] = useState([]);
+  const [data, setData] = useState([]);
+  const isFocused = useIsFocused();
   
+  const API_ENDPOINT = `http://${ipAdd}:4000/api/events`
 
-    const onLongPress= () => {
-      Alert.alert('jai ete clicker')
-      }
+  useEffect(() => {
+    Axios.get(API_ENDPOINT)
+    .then((response) => {
+      setData(response.data);
+      setFullData(response.data);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  }, [isFocused]);
 
-      
+  const handleSearch = (text) => {
+    const formattedQuery = text.toLowerCase();
+    const filteredData = filter(fullData, item => {
+      return contains(item, formattedQuery);
+    });
+    setData(filteredData);
+    setQuery(text);
+  };
 
-    const activities = [{ 
-      name : "Restaurant", 
-      isSelected: false
-    },
-    {
-      name : "Bar",
-       isSelected: false
-    },
-    {
-      name : "Afterwork",
-       isSelected: false
-    } 
-    ];
-
-
-    const [selectedActivities, setSelectedActivities] = useState(activities);
-    
-    const selectActivity = (activity ) => {
-      console.log(activity)
-      // console.log(selectedActivities)
-
-      const updatedSelectedActivities = selectedActivities.map(element => {
-        if(element.name == activity){
-          console.log('is match')
-        
-          return({ 
-            ...element, 
-            isSelected: !element.isSelected
-          })
-        } else {
-           return({...element})
-        }
-      });
-
-       console.log(updatedSelectedActivities)
-
-       setSelectedActivities(updatedSelectedActivities)
+  const contains = ({ title }, query) => { 
+    if (title.includes(query)) {
+      return true;
     }
+    return false;
+  };
+  
+  const mapingEventDB = ({item}) => {
+     return <EventsTemplate id={item.id} event={item} />
+  };
 
-
-    const hostGenders = [{
-      name: "Female",
-      isSelected : false
-    },
-    {
-      name: "Male",
-      isSelected :false
-    } 
-  ];
-
-
-
-  const [selectedGenders, setSelectedGenders] = useState(hostGenders);
-    
-    const selectGender = (gender) => {
-      console.log(gender)
-      //  console.log(selectedGenders)
-
-      const updatedSelectedGenders = selectedGenders.map(element => {
-        if(element.name === gender){
-          console.log('is match')
-        
-           return({ 
-            ...element, 
-            isSelected: !element.isSelected
-          })
-        } else {
-           return({...element})
-        }
-       });
-
-         console.log(updatedSelectedGenders)
-
-        setSelectedGenders(updatedSelectedGenders)
-    }
-
-
-    const keywords= [{
-      name: "Bruxelles",
-      isSelected: false
-    },
-    {
-      name: "Museum",
-      isSelected: false
-    }
-   ]
-
-
-
-   const [selectedKeywords, setSelectedKeywords] = useState(keywords);
-    
-    const selectKeyword = (keyword) => {
-      console.log(keyword)
-      //  console.log(selectedGenders)
-
-      const updatedSelectedKeywords = selectedKeywords.map(element => {
-        if(element.name == keyword){
-          console.log('is match')
-        
-           return({ 
-            ...element, 
-            isSelected: !element.isSelected
-          })
-        } else {
-           return({...element})
-        }
-       });
-
-         console.log(updatedSelectedKeywords)
-
-        setSelectedKeywords(updatedSelectedKeywords)
-    }
-
-
+  const renderHeader = () => {
+    return (
+      <View style={styles.inputBox} >
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          clearButtonMode="always"
+          value={query}
+          onChangeText={queryText => handleSearch(queryText)}
+          placeholder="Looking for an event?"
+          style={styles.input}
+        />
+      </View>
+    );
+  }
 
   return (
-    <View style={styles.container}>
-      <Image style={styles.logo} source={logo} />
-      <Text style={styles.filter}>My Filters</Text>
-      <Separator />
+    <View  style={styles.container}>
+      <Image style={styles.logo} source={logo}/> 
+      <Text style={styles.filter}>My search</Text>
 
-      <Text style={styles.filtertext}>ACTIVITY</Text> 
+      <FlatList
+        ListHeaderComponent={renderHeader}
+        data={data}
+        keyExtractor={item => item.title}
+        renderItem={mapingEventDB}
+        showsVerticalScrollIndicator={false}
+        />   
 
-        <View style= {styles.containerFilter}>
-           {selectedActivities.map((activity) => {
-            // console.log(activity)
-              return(      
-                 <ButtonFilter key={activity.name} text={activity.name} handlePress={selectActivity} isSelected={activity.isSelected}/>
-           )
-          })}
-        </View>
-         <Separator />
-
-        <Text style={styles.filtertext}>HOSTED BY</Text>
-        <View style={styles.containerFilter}> 
-          {selectedGenders.map(gender => {
-           return( 
-            <ButtonFilter key={gender.name} text={gender.name} handlePress={selectGender} isSelected={gender.isSelected} />
-          )
-         })}
-        </View> 
-         <Separator />
-
-        <Text style={styles.filtertext}>KEYWORDS</Text>
-        <View style={styles.containerFilter}> 
-          {selectedKeywords.map(keyword => {
-             return( 
-            <ButtonFilter key={keyword.name} text={keyword.name} handlePress={selectKeyword} isSelected={keyword.isSelected} />
-          )
-         })}
-        </View>
-         <Separator />
-
-
-
-          <FabsTemplate onLongPress={onLongPress} name={'pencil-circle-outline'}  color={"black"} />
-
-          <Text style={styles.filtertext}>DATE</Text>
-        <View style={styles.containerFilterDate}>
-
-        
-         <Form inputs={editForm} onSubmit={val => console.log(val)} />
-        
-        </View>
-        
+      {/* <View style={styles.inputBox}>
+        <TextInput 
+          style={styles.input}
+          type="text"
+          onChange={handleChange}
+          placeholder="Looking for an event?"
+          placeholderTextColor="gray"
+          clearButtonMode="always"
+          value={input}
+          >
+        </TextInput>  
+      </View> */}
+     
     </View>
   );
-};
+}
 
 export default SearchScreen;
