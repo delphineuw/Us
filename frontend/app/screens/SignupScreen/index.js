@@ -62,24 +62,24 @@ const signupForm = [
   //   type: 'birthday'
   // }
 ];
-const submitUser = async data => {
-  const dispatch = useDispatch();
-  const email = data.filter(item => item.field === 'email')[0].value;
-  const password = data.filter(item => item.field === 'password')[0].value;
-  const fullName = data.filter(item => item.field === 'fullName')[0].value;
-
-  let response;
-  try {
-    response = await axios.post('http://localhost:4000/api/users/signup/', { email, password, fullName });
-  } catch (error) {
-    console.log(error);
-  }
-  if (response) {
-    dispatch({ type: 'LOGIN', payload: { fullName: response.data.user.fullName, image: response.data.user.image } });
-  }
-};
 
 const SignupScreen = props => {
+  const dispatch = useDispatch();
+  const submitUser = async data => {
+    const email = data.filter(item => item.field === 'email')[0].value;
+    const password = data.filter(item => item.field === 'password')[0].value;
+    const fullName = data.filter(item => item.field === 'fullName')[0].value;
+
+    let response;
+    try {
+      response = await axios.post('http://localhost:4000/api/users/signup/', { email, password, fullName });
+    } catch (error) {
+      console.log(error);
+    }
+    if (response) {
+      dispatch({ type: 'LOGIN', payload: { fullName: response.data.user.fullName, image: response.data.user.image } });
+    }
+  };
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
