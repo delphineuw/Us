@@ -1,62 +1,66 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, justifyContent: 'center', alignItems: 'center'
-    },
-    image: {
-        width: 150, height: 150, borderRadius: 100
-    },
-  container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: '30%',
-    width: 330
+    marginTop: "25%",
   },
-  text: {
+  mainContent: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  imageUser: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+  },
+  textUser: {
     fontSize: 20,
     margin: 20,
-    color: 'grey',
-    fontWeight: 'bold'
-  },
-  image: {
-    width: 120,
-    height: 120,
-    borderRadius: 100
+    color: "grey",
+    fontWeight: "bold",
   },
   gridUser: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     margin: 10,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: '100%',
-    marginLeft: '60%'
+    justifyContent: "flex-start",
+    alignItems: "center",
+    width: "100%",
+    marginLeft: "60%",
   },
-  hobbies: {
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    paddingTop: '16%'
+  hobbiesWrapper: {
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    paddingTop: 20,
+    margin: 10,
   },
-  content: {
-   margin: 5,
-   alignItems: 'center',
+  hobby: {
+    height: 100,
+    width: 100,
+    borderRadius: 100,
+    margin: 5,
   },
   gridHobby: {
-    margin: 5
+    margin: 5,
   },
   texthobby: {
-    textAlign: 'center',
+    textAlign: "center",
     margin: 10,
-    fontFamily: 'Chilanka_400Regular',
-    fontSize: 18 
+    fontFamily: "Chilanka_400Regular",
+    fontSize: 18,
   },
   textcontent: {
-    margin: 9
-  }
+    margin: 9,
+  },
+  fabsPencil: {
+    display: "flex",
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+    elevation: 30,
+  },
 });
 export default styles;

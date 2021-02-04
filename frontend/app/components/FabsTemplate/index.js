@@ -1,32 +1,31 @@
-import React from 'react';
-import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
+import React from "react";
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 
 //local import
-import styles from './styles'
+import styles from "./styles";
 
-
-const FabsTemplate = ({handlePress, color, name}) => {
-  
-  if ( name === 'pencil-circle-outline' ){
-    return(
-      <MaterialCommunityIcons style={styles.fabsPencil} 
+const FabsTemplate = ({ handlePress, color, name }) => {
+  if (name === "pencil-circle-outline") {
+    return (
+      <MaterialCommunityIcons
+        style={styles.fabs}
         onPress={handlePress}
-        name={name}  
+        name={name}
         color={color}
         size={80}
       />
-      )
+    );
   } else {
-    return ( 
-      <AntDesign style={styles.fabsPlus} 
+    return (
+      <AntDesign
+        style={styles.fabs}
         onPress={handlePress}
-        name={name}  
+        name={name}
         color={color}
         size={80}
       />
-    )
+    );
   }
-}
-
+};
 
 export default FabsTemplate;
