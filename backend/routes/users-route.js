@@ -4,7 +4,7 @@ const usersControllers = require('../controllers/users-controllers');
 const authController = require('../controllers/authentificate-controllers');
 
 router.post('/signup', authController.signup);
-router.post('/login', authController.authentificate);
+router.post('/login', authController.login);
 
 // Post new User:
 router.post('/', usersControllers.saveUser);

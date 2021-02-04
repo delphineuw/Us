@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import axios from 'axios';
 
-
 // Local imports
 import logo from '../../assets/logo.png';
 import Form from '../../components/FormTemplate/index';
@@ -18,7 +17,8 @@ const loginForm = [
     type: 'emailAddress',
     security: false,
     autoCapitalize: 'none',
-    value: ''
+    value: '',
+    field: 'email'
   },
   {
     id: 2,
@@ -29,29 +29,28 @@ const loginForm = [
     type: 'password',
     security: true,
     autoCapitalize: 'none',
-    value: ''
+    value: '',
+    field: 'password'
   }
 ];
-const login = (data) => {
-  let body = {}
-  data.forEach(element => {
-    body[element.type] = element.value
-  });
-  console.log(body)
-  axios.post('http://localhost:4000/api/users/login', body)
-    .then((res) => {
-        console.log(res.data)
-      }).catch((err) => {
-        console.log(err)
-      })
-}
+const submitUser = async data => {
+  const email = data.filter(item => item.field === 'email')[0].value;
+  const password = data.filter(item => item.field === 'password')[0].value;
+
+  let response;
+  try {
+    response = await axios.post('http://localhost:4000/api/users/login/', { email, password });
+  } catch (error) {
+    console.log(error);
+  }
+  if (response) console.log(response.data);
+};
 
 const LoginScreen = props => {
-
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
-      <Form inputs={loginForm} onSubmit={login} />
+      <Form inputs={loginForm} onSubmit={submitUser} />
     </View>
   );
 };

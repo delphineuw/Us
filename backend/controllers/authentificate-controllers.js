@@ -109,7 +109,11 @@ const login = async (req, res, next) => {
 
   let user;
   try {
-    user = await User.findOne({ email });
+    user = await User.findOne({
+      where: {
+        email
+      }
+    });
   } catch (error) {
     return next(new Error('[POST][USERS] Could not log user in.'));
   }
@@ -125,17 +129,10 @@ const login = async (req, res, next) => {
     return next(new Error('[POST][USERS] Login failed (password is wrong).'));
   }
 
-  let token;
-  try {
-    token = await jwt.sign({ userId: user.id }, process.env.SECRET);
-  } catch (error) {
-    return next(new Error('[POST][USERS] Login failed (could not create token).'));
-  }
-
   if (decodedPassword) {
+    console.log('[POST][USERS] User logged in!');
     res.json({
       message: '[POST][USERS] User logged in!',
-      token,
       user,
       access: true
     });
