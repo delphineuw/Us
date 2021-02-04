@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 // Local imports
 import logo from '../../assets/logo.png';
@@ -33,20 +34,25 @@ const loginForm = [
     field: 'password'
   }
 ];
-const submitUser = async data => {
-  const email = data.filter(item => item.field === 'email')[0].value;
-  const password = data.filter(item => item.field === 'password')[0].value;
-
-  let response;
-  try {
-    response = await axios.post('http://localhost:4000/api/users/login/', { email, password });
-  } catch (error) {
-    console.log(error);
-  }
-  if (response) console.log(response.data);
-};
 
 const LoginScreen = props => {
+  const dispatch = useDispatch();
+
+  const submitUser = async data => {
+    const email = data.filter(item => item.field === 'email')[0].value;
+    const password = data.filter(item => item.field === 'password')[0].value;
+
+    let response;
+    try {
+      response = await axios.post('http://localhost:4000/api/users/login/', { email, password });
+    } catch (error) {
+      console.log(error);
+    }
+    if (response) {
+      dispatch({ type: 'LOGIN', payload: { fullName: response.data.user.fullName, image: response.data.user.image } });
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
