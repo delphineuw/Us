@@ -44,7 +44,9 @@ const editForm = [
   },
 ];
 
-const EditProfileScreen = (props) => {
+const changeHobbies = true;
+
+const EditProfileScreen = (change) => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
@@ -52,7 +54,11 @@ const EditProfileScreen = (props) => {
           <Image style={styles.image} source={PLACEHOLDER} />
           <Button title="Upload" onPress={() => console.log("Click")} />
         </View>
-        <Form inputs={editForm} onSubmit={(val) => console.log(val)} />
+        <Form
+          inputs={editForm}
+          onSubmit={(val) => console.log(val)}
+          changeHobbies={changeHobbies}
+        />
       </View>
     </View>
   );

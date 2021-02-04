@@ -65,10 +65,6 @@ const profileScreen = (props) => {
         color="#rgba(21,133,130, 1)"
         style={styles.fabsPencil}
       />
-      {/* <Button
-        title="hobbies"
-        onPress={() => props.navigation.navigate("EditHobbiesScreen")}
-      /> */}
     </View>
   );
 };
