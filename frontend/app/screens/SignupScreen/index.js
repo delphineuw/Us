@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image } from 'react-native';
 
 // Local imports
@@ -15,10 +15,11 @@ const signupForm = [
     placeholder: 'Write here...',
     label: 'Full Name',
     multiline: false,
-    type: 'fullName',
+    type: 'none',
     security: false,
     autoCapitalize: 'none',
     value: '',
+    field: 'fullName'
   },
   {
     id: 2,
@@ -26,10 +27,11 @@ const signupForm = [
     placeholder: 'Write here...',
     label: 'Email',
     multiline: false,
-    type: 'email',
+    type: 'emailAddress',
     security: false,
     autoCapitalize: 'none',
-    value: ''
+    value: '',
+    field: 'email'
   },
   {
     id: 3,
@@ -40,42 +42,53 @@ const signupForm = [
     type: 'password',
     security: true,
     autoCapitalize: 'none',
-    value: ''
-  },
-  {
-    id: 4,
-    render: 'radio',
-    label: 'Gender',
-    options: ['Male', 'Female', 'Other'],
-    value: 'Other',
-    type: 'gender'
-  },
-  {
-    id: 5,
-    render: 'date',
-    label: 'Date of birth',
-    value: new Date(),
-    type: 'birthday'
+    value: '',
+    field: 'password'
   }
+  // {
+  //   id: 4,
+  //   render: 'radio',
+  //   label: 'Gender',
+  //   options: ['Male', 'Female', 'Other'],
+  //   value: 'Other',
+  //   type: 'gender'
+  // },
+  // {
+  //   id: 5,
+  //   render: 'date',
+  //   label: 'Date of birth',
+  //   value: new Date(),
+  //   type: 'birthday'
+  // }
 ];
-const submitUser = (data) => {
-   console.log('I am in submitUser')
-   let body = {}
-   data.forEach(element => {
-     body[element.type] = element.value
-    });
-    console.log(body)
-    console.log("i am in submit ")
-    axios.post('http://localhost:4000/api/users/signup/', body)
-      .then((res) => {
-          console.log(res.data)
-        }).catch((err) => {
-          console.log(err)
-        })
+const submitUser = async data => {
+  const email = data.filter(item => item.field === 'email')[0].value;
+  const password = data.filter(item => item.field === 'password')[0].value;
+  const fullName = data.filter(item => item.field === 'fullName')[0].value;
+
+  let response;
+  try {
+    response = await axios.post('http://localhost:4000/api/users/signup/', { email, password, fullName });
+  } catch (error) {
+    console.log(error);
   }
+  if (response) console.log(response.data);
+  // let body = {};
+  // data.forEach(element => {
+  //   body[element.type] = element.value;
+  // });
+  // console.log(body);
+  // axios
+  //   .post('http://localhost:4000/api/users/signup/', body)
+  //   .then(res => {
+  //     console.log(res.data);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+};
 
 const SignupScreen = props => {
-
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logo} />
@@ -84,5 +97,3 @@ const SignupScreen = props => {
   );
 };
 export default SignupScreen;
-
-
