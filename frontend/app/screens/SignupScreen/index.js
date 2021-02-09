@@ -45,22 +45,43 @@ const signupForm = [
     autoCapitalize: 'none',
     value: '',
     field: 'password'
+  },
+  {
+    id: 4,
+    render: 'text',
+    placeholder: 'Write here...',
+    label: 'Birthday',
+    multiline: false,
+    type: 'none',
+    security: false,
+    autoCapitalize: 'none',
+    value: '',
+    field: 'birthday'
+  },
+  {
+    id: 5,
+    render: 'text',
+    placeholder: 'Write here...',
+    label: 'Country',
+    multiline: false,
+    type: 'none',
+    security: false,
+    autoCapitalize: 'none',
+    value: '',
+    field: 'country'
+  },
+  {
+    id: 6,
+    render: 'text',
+    placeholder: 'Write here...',
+    label: 'City',
+    multiline: false,
+    type: 'none',
+    security: false,
+    autoCapitalize: 'none',
+    value: '',
+    field: 'city'
   }
-  // {
-  //   id: 4,
-  //   render: 'radio',
-  //   label: 'Gender',
-  //   options: ['Male', 'Female', 'Other'],
-  //   value: 'Other',
-  //   type: 'gender'
-  // },
-  // {
-  //   id: 5,
-  //   render: 'date',
-  //   label: 'Date of birth',
-  //   value: new Date(),
-  //   type: 'birthday'
-  // }
 ];
 
 const SignupScreen = props => {
@@ -69,15 +90,34 @@ const SignupScreen = props => {
     const email = data.filter(item => item.field === 'email')[0].value;
     const password = data.filter(item => item.field === 'password')[0].value;
     const fullName = data.filter(item => item.field === 'fullName')[0].value;
+    const birthday = data.filter(item => item.field === 'birthday')[0].value;
+    const country = data.filter(item => item.field === 'country')[0].value;
+    const city = data.filter(item => item.field === 'city')[0].value;
 
     let response;
     try {
-      response = await axios.post('http://localhost:4000/api/users/signup/', { email, password, fullName });
+      response = await axios.post('http://localhost:4000/api/users/signup/', {
+        email,
+        password,
+        fullName,
+        birthday,
+        country,
+        city
+      });
     } catch (error) {
       console.log(error);
     }
     if (response) {
-      dispatch({ type: 'LOGIN', payload: { fullName: response.data.user.fullName, image: response.data.user.image } });
+      dispatch({
+        type: 'LOGIN',
+        payload: {
+          fullName: response.data.user.fullName,
+          image: response.data.user.image,
+          country: response.data.user.country,
+          city: response.data.user.city,
+          birthday: response.data.user.birthday
+        }
+      });
     }
   };
   return (

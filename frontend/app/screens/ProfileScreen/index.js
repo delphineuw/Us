@@ -27,17 +27,17 @@ const profileScreen = props => {
 
         <View style={styles.gridUser}>
           <FontAwesome name="birthday-cake" size={24} color="black" />
-          <Text style={styles.textcontent}> {user[0].birthday} </Text>
+          <Text style={styles.textcontent}> {userData.birthday} </Text>
         </View>
 
         <View style={styles.gridUser}>
           <Entypo name="location-pin" size={24} color="black" />
-          <Text style={styles.textcontent}> {user[0].city} </Text>
+          <Text style={styles.textcontent}> {userData.city} </Text>
         </View>
 
         <View style={styles.gridUser}>
           <Fontisto name="world-o" size={24} color="black" />
-          <Text style={styles.textcontent}> {user[0].country} </Text>
+          <Text style={styles.textcontent}> {userData.country} </Text>
         </View>
 
         <View style={styles.hobbiesWrapper}>
