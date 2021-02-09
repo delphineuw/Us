@@ -68,7 +68,7 @@ const isAuthenticated = async (req, res, next) => {
 };
 
 const signup = async (req, res, next) => {
-  const { email, password, fullName } = req.body;
+  const { email, password, fullName, birthday, city, country } = req.body;
   const defaultImage = generator.generateRandomAvatar();
 
   let hashedPassword;
@@ -82,6 +82,9 @@ const signup = async (req, res, next) => {
     email,
     password: hashedPassword,
     fullName,
+    birthday,
+    city,
+    country,
     image:
       'https://st3.depositphotos.com/13159112/17145/v/600/depositphotos_171453724-stock-illustration-default-avatar-profile-icon-grey.jpg'
   };

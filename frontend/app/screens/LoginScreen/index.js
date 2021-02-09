@@ -49,7 +49,16 @@ const LoginScreen = props => {
       console.log(error);
     }
     if (response) {
-      dispatch({ type: 'LOGIN', payload: { fullName: response.data.user.fullName, image: response.data.user.image } });
+      dispatch({
+        type: 'LOGIN',
+        payload: {
+          fullName: response.data.user.fullName,
+          image: response.data.user.image,
+          country: response.data.user.country,
+          city: response.data.user.city,
+          birthday: response.data.user.birthday
+        }
+      });
     }
   };
 
