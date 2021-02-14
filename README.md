@@ -4,12 +4,17 @@
 
 <ol>
   <li><a href="#setup">Setup</a></li>
+  <li><a href="#admin">Admin Panel</a></li>
   <li><a href="#comp">Components</a></li>
   <ul>
     <li><a href="#form">Form</a></li> 
     <li><a href="#textInp">Text Input</a></li>
     <li><a href="#radioInp">Radio Input</a></li>
     <li><a href="#dateInp">Date Input</a></li>
+     <li><a href="#card">Card</a></li> 
+    <li><a href="#btn">Buttons</a></li>
+    <li><a href="#fab">Fab</a></li>
+    <li><a href="#map">Map</a></li>
   </ul>
 </ol>  
 
@@ -37,7 +42,75 @@
 }
 ```
 
-Work in progress 🔨
+in the config directory, add a file called config.json. 
+
+```
+{
+  "development": {
+    "username": "root",
+    "password": "<password?>",
+    "database": "us",
+    "host": " <localhost?>",
+    "dialect": "mysql",
+    "PORT": 4000
+  },
+  "test": {
+    "username": "root",
+    "password": "<password?>",
+    "database": "us",
+    "host": " <localhost?>",
+    "dialect": "mysql",
+    "PORT": 4000
+  },
+  "production": {
+    "username": "root",
+    "password": "<password?>",
+    "database": "us",
+    "host": " <localhost?>",
+    "dialect": "mysql",
+    "PORT": 4000
+  }
+}
+```
+
+In the case, you receive a network issue message;
+add a file in utils, names 'idAdd.js' and add it to the gitignore file. Inside this file, add your ip address.
+repeat the operation in the frontend directory;
+
+```
+const ipAdd = "<your ip address>";
+export default ipAdd;
+
+```
+When it's done, setup sequelize with this cmds 
+
+npx sequelize db:migrate
+
+you can read more on the sequelize doc here => https://github.com/sequelize/cli
+
+To run the app, install expo and/or an IOS/Android emulator.
+
+<h2 id="admin">Admin Panel 📝</h2>
+
+you can manage the app with the Admin Panel at this address 
+
+``` http://localhost:4000/admin/login ```
+
+in order to login, add this lines to the nodemon.json file;
+
+```
+{
+  "env": {
+    "PORT": 4000,
+    "DB_HOST": <localhost?>,
+    "DB_USER": "root",
+    "DB_PASSWORD": <password?>,
+    "DB_NAME": "us"
+    "ADMIN_EMAIL": "<email?>",
+    "ADMIN_PASSWORD": "<user_name?>"
+  }
+}
+```
 
 <h2 id="comp">Components Doc 📝</h2>
 
@@ -253,5 +326,5 @@ const App = () => {
 };
 ```
 
-
+WORK IN PROGRESS ...
 
