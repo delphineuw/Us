@@ -19,7 +19,7 @@ const SearchScreen = () => {
   const [data, setData] = useState([]);
   const isFocused = useIsFocused();
 
-  const API_ENDPOINT = `http://${ipAdd}:4000/api/events`;
+  const API_ENDPOINT = `${ipAdd}/api/events`;
 
   useEffect(() => {
     Axios.get(API_ENDPOINT)
@@ -81,7 +81,7 @@ const SearchScreen = () => {
       />
 
       {/* <View style={styles.inputBox}>
-        <TextInput 
+        <TextInput
           style={styles.input}
           type="text"
           onChange={handleChange}
@@ -90,7 +90,7 @@ const SearchScreen = () => {
           clearButtonMode="always"
           value={input}
           >
-        </TextInput>  
+        </TextInput>
       </View> */}
     </View>
   );

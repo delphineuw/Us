@@ -2,8 +2,15 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
+    borderWidth:2,
+    borderColor:'blue',
     flex: 1,
-    marginTop: "25%",
+    // marginTop: "25%",
+  },
+  contentContainer: {
+    borderWidth:2,
+    borderColor:'violet',
+    flexGrow: 1,
   },
   mainContent: {
     justifyContent: "center",

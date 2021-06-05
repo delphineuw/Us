@@ -8,15 +8,17 @@ const AdminBroSequelize = require('@admin-bro/sequelize');
 
 // Local imports
 const db = require('./models');
+console.log('app.js db=', db)
 const sequelize = require('./utils/config');
 const routes = require('./routes');
+const myConfig = require('./config/configjs.js')['development']; //[env]; // FIXME
 
 // Express Config
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Admin
+// Admin - FIXME
 AdminBro.registerAdapter(AdminBroSequelize);
 const adminBro = new AdminBro({
   databases: [db],
@@ -38,6 +40,7 @@ const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
 app.use(adminBro.options.rootPath, router);
 
 const createAdmin = async (email, password) => {
+    console.log('create admin', email, password)
   const adminExists = await db.Admin.findOne({ where: { email } });
   if (adminExists) return;
 
@@ -48,9 +51,10 @@ const createAdmin = async (email, password) => {
     console.log('Could not create Admin.');
   }
 };
-
+// ====================================
 // Registered Routes
 app.use('/api', routes);
+// ====================================
 
 // Error Handling Middleware
 app.use((error, req, res, next) => {
@@ -61,7 +65,8 @@ app.use((error, req, res, next) => {
 // Server Start & Database connection
 sequelize
   .authenticate()
-  .then(() => createAdmin(process.env.ADMIN_EMAIL, process.env.ADMIN_PASSWORD))
+  // .then(() => createAdmin(process.env.ADMIN_EMAIL, process.env.ADMIN_PASSWORD))
+  .then(() => createAdmin(myConfig.ADMIN_EMAIL, myConfig.ADMIN_PASSWORD))
   .then(() =>
     app.listen(process.env.PORT || 5000, () =>
       console.log(`Server up and running on port: ${process.env.PORT || 5000}!`)

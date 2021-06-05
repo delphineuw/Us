@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import logo from '../../assets/logo.png';
 import Form from '../../components/FormTemplate/index';
 import styles from './styles';
+import ipAdd from "../../utils/ipAdd";
 
 // call api POST
 const signupForm = [
@@ -96,7 +97,7 @@ const SignupScreen = props => {
 
     let response;
     try {
-      response = await axios.post('http://localhost:4000/api/users/signup/', {
+      response = await axios.post(ipAdd+'/api/users/signup/', {
         email,
         password,
         fullName,

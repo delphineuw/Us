@@ -14,9 +14,9 @@ function HomeScreen({ navigation }) {
       {/*<Image  style={{height: 150, marginBottom:100, width:150, justifyContent:'center'}}
         source={splashImg}/>*/}
       <Text > Meet anywhere, anyday </Text>
-      <Button 
-        title=" SIGN UP"
-        onPress={() => alert('iam in the profile')}
+      <Button
+        title="SIGN UP"
+        onPress={() => alert('iam in the profile')} // TODO
       />
       <Button
         title="details"
@@ -39,7 +39,7 @@ function DetailsScreen({ navigation }) {
       <Button
         title="go to Home"
         onPress={() => navigation.navigate('Home')}
-      /> 
+      />
     </View>
   );
 }
@@ -55,7 +55,7 @@ const Home = props => {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
-    </NavigationContainer> 
+    </NavigationContainer>
   );
 };
 

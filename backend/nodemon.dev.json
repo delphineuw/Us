@@ -1,0 +1,11 @@
+{
+  "env": {
+    "PORT": 4000,
+    "DB_HOST": "localhost",
+    "DB_USER": "root",
+    "DB_PASSWORD": "<password?>",
+    "DB_NAME": "us",
+    "ADMIN_EMAIL": "<email?>",
+    "ADMIN_PASSWORD": "<user_name?>"
+  }
+}

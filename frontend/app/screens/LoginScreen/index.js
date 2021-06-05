@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import logo from '../../assets/logo.png';
 import Form from '../../components/FormTemplate/index';
 import styles from './styles';
+import ipAdd from "../../utils/ipAdd";
 
 const loginForm = [
   {
@@ -39,12 +40,14 @@ const LoginScreen = props => {
   const dispatch = useDispatch();
 
   const submitUser = async data => {
+    // const email = 'test e' ; // TODO data.filter(item => item.field === 'email')[0].value;
+    // const password = 'test'; // TODO data.filter(item => item.field === 'password')[0].value;
     const email = data.filter(item => item.field === 'email')[0].value;
     const password = data.filter(item => item.field === 'password')[0].value;
 
     let response;
     try {
-      response = await axios.post('http://localhost:4000/api/users/login/', { email, password });
+      response = await axios.post(ipAdd+'/api/users/login/', { email, password });
     } catch (error) {
       console.log(error);
     }

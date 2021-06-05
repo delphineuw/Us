@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "setup-db": "npx sequelize db:migrate",
+    "heroku-login": "heroku login",
+    "heroku-deploy": "git add . && git commit -am \"make it better\" && git push heroku master",
+    "heroku-logs": "heroku logs --tail",
     "start": "nodemon app.js"
   },
   "keywords": [],
@@ -27,7 +31,8 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
     "random-avatar-generator": "^2.0.0",
-    "sequelize": "^6.3.5",
-    "tslib": "^2.1.0"
+    "sequelize": "^6.6.2",
+    "tslib": "^2.1.0",
+    "nodemon": "^2.0.6"
   }
 }

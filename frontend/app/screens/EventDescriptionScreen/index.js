@@ -53,7 +53,7 @@ const EventDescriptionScreen = ({ route, navigation }) => {
   };
 
   const handlePress = () => {
-    Alert.alert("You joined this event!");
+    Alert.alert("You joined this event!"); //TODO
   };
 
   return (

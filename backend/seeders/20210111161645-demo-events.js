@@ -12,8 +12,10 @@ module.exports = {
           location: 'London',
           isFinished: false,
           limited: false,
-          start: new Date('December 17, 2021 03:24:00'),
-          end: new Date('December 20, 2021 03:24:00'),
+          date: 'December 17',
+          time: '2021 03:24:00',
+          // start: new Date('December 17, 2021 03:24:00'),
+          // end: new Date('December 20, 2021 03:24:00'),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -24,8 +26,10 @@ module.exports = {
           location: 'Brussels',
           isFinished: false,
           limited: false,
-          start: new Date('December 17, 2021 03:24:00'),
-          end: new Date('December 20, 2021 03:24:00'),
+          date: 'December 17',
+          time: '2021 03:24:00',
+          // start: new Date('December 17, 2021 03:24:00'),
+          // end: new Date('December 20, 2021 03:24:00'),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -36,8 +40,10 @@ module.exports = {
           location: 'New York',
           isFinished: false,
           limited: false,
-          start: new Date('December 17, 2021 03:24:00'),
-          end: new Date('December 20, 2021 03:24:00'),
+          date: 'December 17',
+          time: '2021 03:24:00',
+          // start: new Date('December 17, 2021 03:24:00'),
+          // end: new Date('December 20, 2021 03:24:00'),
           createdAt: new Date(),
           updatedAt: new Date()
         }

@@ -5,6 +5,11 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "web-build": "rm -rf web-build && npx expo-optimize && expo build:web || true",
+    "web-test": "npx serve web-build",
+    "web-rename": "cd web-build && mv index.html app.html",
+    "web-merge-build": "cp -r -f ../static/ ./web-build",
+    "web-build-all": "yarn run web-build && yarn run web-rename && yarn run web-merge-build",
     "eject": "expo eject"
   },
   "dependencies": {
@@ -16,14 +21,17 @@
     "@react-navigation/native": "^5.8.10",
     "@react-navigation/stack": "^5.12.8",
     "axios": "^0.21.1",
+    "datetimepicker": "^0.1.39",
     "expo": "~39.0.2",
     "expo-font": "~8.3.0",
     "expo-status-bar": "~1.0.2",
     "link": "^0.1.5",
     "lodash.filter": "^4.6.0",
     "moment": "^2.29.1",
-    "native-base": "^2.13.15",
+    "native-base": "^2.15.2",
+    "native-base-web": "0.0.5",
     "react": "16.13.1",
+    "react-datepicker": "^3.7.0",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
     "react-native-base": "^1.1.0",
@@ -40,7 +48,15 @@
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "@expo/webpack-config": "^0.12.64",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-react-native-web": "^0.15.6",
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "private": true
 }

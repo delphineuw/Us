@@ -28,10 +28,11 @@ const editForm = [
 ];
 const SearchScreen = props => {
     const onLongPress= () => {
-      Alert.alert('jai ete clicker')
-      }
-    const activities = [{ 
-      name : "Restaurant", 
+      Alert.alert('jai ete clicker')    //  TODO
+
+    }
+    const activities = [{
+      name : "Restaurant",
       isSelected: false
     },
     {
@@ -41,14 +42,14 @@ const SearchScreen = props => {
     {
       name : "Afterwork",
        isSelected: false
-    } 
+    }
     ];
-    const [selectedActivities, setSelectedActivities] = useState(activities); 
+    const [selectedActivities, setSelectedActivities] = useState(activities);
     const selectActivity = (activity ) => {
       const updatedSelectedActivities = selectedActivities.map(element => {
         if(element.name == activity){
-          return({ 
-            ...element, 
+          return({
+            ...element,
             isSelected: !element.isSelected
           })
         } else {
@@ -64,14 +65,14 @@ const SearchScreen = props => {
     {
       name: "Male",
       isSelected :false
-    } 
+    }
   ];
   const [selectedGenders, setSelectedGenders] = useState(hostGenders);
     const selectGender = (gender) => {
       const updatedSelectedGenders = selectedGenders.map(element => {
         if(element.name === gender){
-           return({ 
-            ...element, 
+           return({
+            ...element,
             isSelected: !element.isSelected
           })
         } else {
@@ -93,8 +94,8 @@ const SearchScreen = props => {
     const selectKeyword = (keyword) => {
       const updatedSelectedKeywords = selectedKeywords.map(element => {
         if(element.name == keyword){
-           return({ 
-            ...element, 
+           return({
+            ...element,
             isSelected: !element.isSelected
           })
         } else {
@@ -108,29 +109,29 @@ const SearchScreen = props => {
       <Image style={styles.logo} source={logo} />
       <Text style={styles.filter}>My Filters</Text>
       <Separator />
-      <Text style={styles.filtertext}>ACTIVITY</Text> 
+      <Text style={styles.filtertext}>ACTIVITY</Text>
         <View style= {styles.containerFilter}>
            {selectedActivities.map((activity) => {
             // console.log(activity)
-              return(      
+              return(
                  <ButtonFilter key={activity.name} text={activity.name} handlePress={selectActivity} isSelected={activity.isSelected}/>
            )
           })}
         </View>
          <Separator />
         <Text style={styles.filtertext}>HOSTED BY</Text>
-        <View style={styles.containerFilter}> 
+        <View style={styles.containerFilter}>
           {selectedGenders.map(gender => {
-           return( 
+           return(
             <ButtonFilter key={gender.name} text={gender.name} handlePress={selectGender} isSelected={gender.isSelected} />
           )
          })}
-        </View> 
+        </View>
          <Separator />
         <Text style={styles.filtertext}>KEYWORDS</Text>
-        <View style={styles.containerFilter}> 
+        <View style={styles.containerFilter}>
           {selectedKeywords.map(keyword => {
-             return( 
+             return(
             <ButtonFilter key={keyword.name} text={keyword.name} handlePress={selectKeyword} isSelected={keyword.isSelected} />
           )
          })}
@@ -138,9 +139,10 @@ const SearchScreen = props => {
          <Separator />
           {/* <FabsTemplate onLongPress={onLongPress} name={'pencil-circle-outline'}  color={"black"} /> */}
           <Text style={styles.filtertext}>DATE</Text>
-        <View style={styles.containerFilterDate}>      
-         <Form inputs={editForm} onSubmit={val => console.log(val)} />       
-        </View>      
+        <View style={styles.containerFilterDate}>
+         <Form inputs={editForm} onSubmit={val => console.log(val) //TODO
+         } />
+        </View>
     </View>
   );
 };

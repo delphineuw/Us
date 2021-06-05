@@ -52,11 +52,13 @@ const EditProfileScreen = (change) => {
       <View style={styles.wrapper}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={PLACEHOLDER} />
-          <Button title="Upload" onPress={() => console.log("Click")} />
+          <Button title="Upload" onPress={() => console.log("Click") // TODO
+          } />
         </View>
         <Form
           inputs={editForm}
-          onSubmit={(val) => console.log(val)}
+          onSubmit={(val) => console.log(val) // TODO
+          }
           changeHobbies={changeHobbies}
         />
       </View>

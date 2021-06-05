@@ -9,7 +9,8 @@ import hobbiesTest from '../../utils/hobbiesTest.js';
 
 const HobbiesScreen = props => {
   const handlePress = () => {
-    Alert.alert('Saved!');
+    Alert.alert('Saved!');    //  TODO
+
   };
 
   const maping = () => {

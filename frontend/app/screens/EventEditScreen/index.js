@@ -89,15 +89,15 @@ const EventEditScreen = props => {
     const time = output.filter(item => item.field === 'Time')[0].value
     // console.log(time);
 
-    axios.post(`http://${ipAdd}:4000/api/events`, {title, category, description, location, date, time})
+    axios.post(`${ipAdd}/api/events`, {title, category, description, location, date, time})
       .then((response) => {
       console.log('posted')
       props.navigation.navigate('EventScreen')
       })
       .catch((error) => {
       console.log('error');
-      });  
-      
+      });
+
   };
 
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
@@ -15,7 +15,7 @@ import styles from './styles';
 const profileScreen = props => {
   const userData = useSelector(state => state);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.mainContent}>
         <Image
           style={styles.imageUser}
@@ -54,7 +54,7 @@ const profileScreen = props => {
         color="#rgba(21,133,130, 1)"
         style={styles.fabsPencil}
       />
-    </View>
+    </ScrollView>
   );
 };
 export default profileScreen;

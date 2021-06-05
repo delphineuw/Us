@@ -20,7 +20,7 @@ const EventScreen = (props) => {
   //  and create a 'const ipAdd = YOUR_IP_ADDRESS' or 'localHost' if you use iOS'in the utils folder and export it.
 
   useEffect(() => {
-    Axios.get(`http://${ipAdd}:4000/api/events`)
+    Axios.get(`${ipAdd}/api/events`)
       .then((response) => {
         setEventList(response.data);
       })

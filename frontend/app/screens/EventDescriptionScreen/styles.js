@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
         marginRight: 0,
     },
     btnContainer: {
-        width: '100%',  
-        justifyContent: 'center', 
+        width: '100%',
+        justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
         bottom: 45
